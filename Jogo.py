@@ -2,8 +2,9 @@
 
 import pygame
 import os
-from config import largura, altura, fps, iniciando, quit
+from config import largura, altura, fps, iniciando, quit, jogando
 from telainicial import telainicial
+from telajogo import telajogo
 
 pygame.init()
 pygame.mixer.init()
@@ -16,3 +17,9 @@ state = iniciando
 while state != quit:
     if state == iniciando:
         state = telainicial(tela)
+    elif state == jogando:
+        state = telajogo(tela)
+    else:
+        state = quit
+
+pygame.quit()
