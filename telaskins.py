@@ -1,6 +1,6 @@
-# Tela Jogando
+# Tela das Skins de berinjela
 
-from config import largura, altura, fps, quit, jogando, skins, Roxo
+from config import largura, altura, fps, quit, jogando, Roxo, skins
 from assets import TelaI, TelaJ, TelaS, load_assets
 from os import path
 import pygame
@@ -13,12 +13,12 @@ pygame.display.set_caption('Berigela Clicker')
 assets = load_assets()
 
 # ----- Inicia estruturas de dados
-def telajogo(screen):
+def telaskins(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
     # Carrega o fundo da tela inicial
-    fundo = assets[TelaJ]
+    fundo = assets[TelaS]
     fundo_rect = fundo.get_rect()
 
     running = True
@@ -34,12 +34,13 @@ def telajogo(screen):
             if event.type == pygame.QUIT:
                 state = quit
                 running = False
+
             if event.type == pygame.KEYDOWN:
                 keysdown[event.key] = True
                 
             if event.type == pygame.KEYUP and keysdown[event.key]:
-                if event.key == pygame.K_RIGHT:
-                    state = skins
+                if event.key == pygame.K_LEFT:
+                    state = jogando
                     running = False
 
         # A cada loop, redesenha o fundo e os sprites

@@ -11,6 +11,7 @@ Imagens = path.join(path.dirname(__file__), 'Imagens')
 quit = 0
 iniciando = 1
 jogando = 2
+skins = 3
 
 # Cores principais
 
