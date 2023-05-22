@@ -17,7 +17,7 @@ Selecionado = 'Botão de Selecionado'
 Selecionar = 'Botão de Selecionar'
 BSkins = 'Botão de Skins'
 Upgrade = 'Botão de Upgrade'
-
+Beri = 'Berinjela'
 
 def load_assets():
     assets = {}
@@ -30,6 +30,8 @@ def load_assets():
     assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
     assets[TelaC] = pygame.image.load(os.path.join(Imagens, 'TelaInstrucao.png')).convert()
     assets[TelaC] = pygame.transform.scale(assets[TelaC], (largura, altura))
+    assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha()]
+    assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200))]
     btns[Comprar] = [pygame.image.load(os.path.join(Botoes, 'Comprar1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'Comprar2.png')).convert()]
     btns[Comprar] = [pygame.transform.scale(btns[Comprar][0], (largura, altura)),pygame.transform.scale(btns[Comprar][1], (largura, altura))]
     btns[Voltar] = [pygame.image.load(os.path.join(Botoes, 'Voltar1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'Voltar2.png')).convert()]

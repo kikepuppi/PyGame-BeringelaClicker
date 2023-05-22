@@ -1,9 +1,10 @@
 # Tela Inicial
 
 from config import largura, altura, fps, quit, jogando, Roxo, instru
-from assets import TelaI, load_assets
+from assets import TelaI, load_assets, Beri
 from os import path
 import pygame
+import random as rd
 
 
 tela = pygame.display.set_mode((largura, altura))
@@ -12,6 +13,19 @@ pygame.display.set_caption('Berigela Clicker')
 
 assets = load_assets()[0]
 
+class Berinjela(pygame.sprite.Sprite):
+    def __init__(self, img):
+        # Construtor da classe mãe (Sprite).
+        pygame.sprite.Sprite.__init__(self)
+
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.centerx = largura/2
+        self.rect.centery = (altura)/2-100
+
+# criando a berinjela
+
+beri = Berinjela(assets[Beri][0])
 # ----- Inicia estruturas de dados
 def telainicial(screen):
     # Variável para o ajuste de velocidade
@@ -45,10 +59,11 @@ def telainicial(screen):
                 else:
                     state = jogando
                     running = False
-                    
+
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
+        screen.blit(beri.image, beri.rect)
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
