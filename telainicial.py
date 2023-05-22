@@ -10,7 +10,7 @@ tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berigela Clicker')
 
 
-assets = load_assets()
+assets = load_assets()[0]
 
 # ----- Inicia estruturas de dados
 def telainicial(screen):
