@@ -7,7 +7,25 @@ from config import largura, altura, Imagens
 TelaI = 'Tela Inicial'
 TelaJ = 'Tela Jogo'
 TelaS = 'Tela Skins'
-Voltar = 'Botão de Voltar'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+Voltar1 = 'Botão de Voltar 1'
+
 def load_assets():
     assets = {}
     assets[TelaI] = pygame.image.load(os.path.join(Imagens, 'TelaInicial.png')).convert()
