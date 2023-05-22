@@ -29,7 +29,7 @@ def load_assets():
     assets[TelaJ] = pygame.transform.scale(assets[TelaJ], (largura, altura))
     assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
     assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaC] = pygame.image.load(os.path.join(Imagens, 'TelaIntrucao.png')).convert()
+    assets[TelaC] = pygame.image.load(os.path.join(Imagens, 'TelaInstrucao.png')).convert()
     assets[TelaC] = pygame.transform.scale(assets[TelaC], (largura, altura))
     btns[Comprar] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
     btns[Comprar] = pygame.transform.scale(assets[TelaS], (largura, altura))
