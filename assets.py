@@ -2,7 +2,7 @@
 
 import pygame
 import os
-from config import largura, altura, Imagens
+from config import largura, altura, Imagens, Botoes
 
 TelaI = 'Tela Inicial'
 TelaJ = 'Tela Jogo'
@@ -28,29 +28,30 @@ Upgrade2 = 'Botão de Upgrade 2'
 
 def load_assets():
     assets = {}
+    btns = {}
     assets[TelaI] = pygame.image.load(os.path.join(Imagens, 'TelaInicial.png')).convert()
     assets[TelaI] = pygame.transform.scale(assets[TelaI], (largura, altura))
     assets[TelaJ] = pygame.image.load(os.path.join(Imagens, 'TelaJogo.png')).convert()
     assets[TelaJ] = pygame.transform.scale(assets[TelaJ], (largura, altura))
     assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
     assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[Comprar1] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
-    assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
-    assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[Comprar1] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[Comprar1] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[Interrogacao1] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[Interrogacao1] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[LoadGame1] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[TelaS] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[TelaS] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[TelaS] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[TelaS] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[TelaS] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    btns[TelaS] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
+    btns[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
 
-    return assets
+    return [assets, btns]
