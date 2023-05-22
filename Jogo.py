@@ -2,7 +2,7 @@
 
 import pygame
 import os 
-from config import largura, altura, fps, iniciando, quit, jogando, skins
+from config import largura, altura, fps, iniciando, quit, jogando, skins 
 from telainicial import telainicial
 from telajogo import telajogo
 from telaskins import telaskins
