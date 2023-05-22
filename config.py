@@ -14,7 +14,7 @@ quit = 0
 iniciando = 1
 jogando = 2
 skins = 3
-
+instru = 4
 # Cores principais
 
 Roxo = (99,46,98)

@@ -9,9 +9,9 @@ tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berigela Clicker')
 
 
-assets = load_assets()
+assets = load_assets()[0]
 
-def telajogo(screen):
+def telacomojogar(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 

@@ -1,6 +1,6 @@
 # Tela Inicial
 
-from config import largura, altura, fps, quit, jogando, Roxo
+from config import largura, altura, fps, quit, jogando, Roxo, instru
 from assets import TelaI, load_assets
 from os import path
 import pygame
@@ -22,7 +22,7 @@ def telainicial(screen):
     fundo_rect = fundo.get_rect()
 
     running = True
-
+    keysdown = {}
     while running:
 
         # Ajusta a velocidade do jogo.
@@ -35,10 +35,17 @@ def telainicial(screen):
                 state = quit
                 running = False
 
-            if event.type == pygame.KEYUP:
-                state = jogando
-                running = False
-
+            if event.type == pygame.KEYDOWN:
+                keysdown[event.key] = True
+                
+            if event.type == pygame.KEYUP and keysdown[event.key]:
+                if event.key == pygame.K_t:
+                    state = instru
+                    running = False
+                else:
+                    state = jogando
+                    running = False
+                    
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
