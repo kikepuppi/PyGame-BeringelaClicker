@@ -3,6 +3,7 @@
 from config import largura, altura, fps, quit, jogando, skins, Roxo
 from assets import TelaI, TelaJ, TelaS, load_assets
 from os import path
+from classes import Button
 import pygame
 
 

@@ -1,7 +1,8 @@
 # Tela de instruções 
 
 from config import largura, altura, fps, quit, jogando, Roxo, skins, instru, iniciando
-from assets import TelaI, TelaJ, TelaS, TelaC, load_assets
+from assets import TelaI, TelaJ, TelaS, TelaC, load_assets, Voltar
+from classes import Button, Berinjela
 from os import path
 import pygame
 
@@ -10,12 +11,16 @@ pygame.display.set_caption('Berigela Clicker')
 
 
 assets = load_assets()[0]
+btns = load_assets()[1]
 
 def telacomojogar(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
+    butao = Button(10,10,btns[Voltar])
+
     # Carrega o fundo da tela inicial
+
     fundo = assets[TelaC]
     fundo_rect = fundo.get_rect()
 
@@ -23,6 +28,8 @@ def telacomojogar(screen):
     keysdown = {}
 
     while running:
+
+        v = butao.aparecer(screen, btns[Voltar])
 
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
@@ -33,6 +40,10 @@ def telacomojogar(screen):
             if event.type == pygame.QUIT:
                 state = quit
                 running = False
+            if v:
+                state = iniciando
+                running = False
+
             if event.type == pygame.KEYDOWN:
                 keysdown[event.key] = True
                 
@@ -45,6 +56,7 @@ def telacomojogar(screen):
                 # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
+
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
