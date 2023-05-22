@@ -1,7 +1,7 @@
 # O JOGO
 
 import pygame
-import os
+import os 
 from config import largura, altura, fps, iniciando, quit, jogando, skins
 from telainicial import telainicial
 from telajogo import telajogo
