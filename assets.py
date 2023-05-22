@@ -7,6 +7,7 @@ from config import largura, altura, Imagens, Botoes
 TelaI = 'Tela Inicial'
 TelaJ = 'Tela Jogo'
 TelaS = 'Tela Skins'
+TelaC = 'Tela Como Jogar'
 Voltar1 = 'Botão de Voltar 1'
 Voltar2 = 'Botão de Voltar 2'
 Comprar = 'Botão de Comprar'
@@ -28,6 +29,8 @@ def load_assets():
     assets[TelaJ] = pygame.transform.scale(assets[TelaJ], (largura, altura))
     assets[TelaS] = pygame.image.load(os.path.join(Imagens, 'TelaSkins.png')).convert()
     assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
+    assets[TelaC] = pygame.image.load(os.path.join(Imagens, 'TelaIntrucao.png')).convert()
+    assets[TelaC] = pygame.transform.scale(assets[TelaC], (largura, altura))
     btns[Comprar] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
     btns[Comprar] = pygame.transform.scale(assets[TelaS], (largura, altura))
     btns[Interrogacao] = pygame.image.load(os.path.join(Botoes, 'TelaSkins.png')).convert()
