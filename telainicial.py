@@ -58,16 +58,13 @@ def telainicial(screen):
                 state = quit
                 running = False
 
-            if event.type == pygame.KEYDOWN:
-                keysdown[event.key] = True
-                
-            if event.type == pygame.KEYUP and keysdown[event.key]:
-                if event.key == pygame.K_t:
-                    state = instru
-                    running = False
-                else:
-                    state = jogando
-                    running = False
+            if int:
+                state = instru
+                running = False
+            
+            if new:
+                state = jogando
+                running = False
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
