@@ -56,11 +56,7 @@ class Berinjela(pygame.sprite.Sprite):
 
             if pygame.mouse.get_pressed()[0] == True:
                 apertou = True
-                self.image = imagem[1]
 
-            elif pygame.mouse.get_pressed()[0] == False:
-                apertou = True
-                self.image = imagem[0]
 
         screen.blit(self.image, self.rect)  
 
