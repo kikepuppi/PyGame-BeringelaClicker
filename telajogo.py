@@ -60,7 +60,7 @@ def telajogo(screen):
         textdima = font.render(str(dima), True, (255,255,255))
         textmoneyRect = textmoney.get_rect()
         textdimaRect = textdima.get_rect()
-        textmoneyRect.center = (75,33)
+        textmoneyRect.center = (80,33)
         textdimaRect.center = (475,33)
 
         screen.blit(textmoney,textmoneyRect)

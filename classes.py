@@ -37,27 +37,36 @@ class Berinjela(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         self.image = img[0]
-        self.image = pygame.transform.scale(img[0], tam)
+        self.image = pygame.transform.scale(self.image, tam)
         self.rect = self.image.get_rect()
         self.rect.centerx = largura/2
         self.rect.centery = (altura)/2-60
+        self.i = 0
+        self.last_update = 0
 
     def Botaoberi(self, screen, imagem, x, y):
-        self.image = imagem[2]
+        # Verifica o tick atual.
+        now = pygame.time.get_ticks()
+        # Verifica quantos ticks se passaram desde a ultima mudança de frame.
+        elapsed_ticks = now - self.last_update
         self.rect.x = x
         self.rect.y = y
-
         apertou = False
 
         pos = pygame.mouse.get_pos()
 
-
+        if self.rect.collidepoint(pos) == False:
+            self.image = imagem[2]
         if self.rect.collidepoint(pos):
-            self.image = imagem[0]
-            if pygame.mouse.get_pressed()[0] == True:
+            if pygame.mouse.get_pressed()[0] == True and elapsed_ticks > 20:
                 apertou = True
-                self.image = imagem[1]
-
+                self.i += 1
+                if self.i % 2 == 1:
+                    self.image = imagem[0]
+                elif self.i % 2 == 0:
+                    self.image = imagem[1]
+                self.last_update = pygame.time.get_ticks()
+        pygame.time.delay(50)
         screen.blit(self.image, self.rect)  
 
         return apertou
