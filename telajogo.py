@@ -27,6 +27,12 @@ def telajogo(screen):
     goods = json.loads(texto)
     money = goods['Dinheiro']
     dima = goods['Gemas']
+    Up1 = goods['Up1']
+    Up2 = goods['Up2']
+    Up3 = goods['Up3']
+    Up4 = goods['Up4']
+    Up5 = goods['Up5']
+    Up6 = goods['Up6']
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
@@ -71,7 +77,7 @@ def telajogo(screen):
         butskins = botaoskins.aparecer(screen, btns[BSkins])
 
         # Ajusta a velocidade do jogo.
-        clock.tick(fps)
+        clock.tick(30)
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
@@ -88,16 +94,31 @@ def telajogo(screen):
                     running = False
             if beri:
                 money += 1
+
             if butskins:
                 state = skins
                 running = False
+            
+            if up1:
+                Up1 += 1
+            if up2:
+                Up2 += 1
+            if up3:
+                Up3 += 1
+            if up4:
+                Up4 += 1
+            if up5:
+                Up5 += 1
+            if up6:
+                Up6 += 1
+            
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
         pygame.display.update()
 
 
-    save = {'Dinheiro':money, 'Gemas':dima}
+    save = {'Dinheiro':money, 'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6}
 
     # Transformando de volta para JSON (texto)
     novo_save = json.dumps(save)

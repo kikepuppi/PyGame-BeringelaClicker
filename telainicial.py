@@ -64,7 +64,7 @@ def telainicial(screen):
                 state = jogando
                 running = False
             # Transformando de volta para JSON (texto)
-                save = {'Dinheiro': 0, "Gemas": 0}
+                save = {'Dinheiro': 0, "Gemas": 0, 'Up1': 0, 'Up2': 0, 'Up3': 0, 'Up4': 0, 'Up5': 0, 'Up6': 0}
                 novo_save = json.dumps(save)
                 # Salvando o arquivo
                 with open('save.json', 'w') as arquivo_json:
