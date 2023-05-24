@@ -1,7 +1,7 @@
 # Tela Inicial
 
 from config import largura, altura, fps, quit, jogando, Roxo, instru
-from assets import TelaI, load_assets, Beri, Voltar
+from assets import TelaI, load_assets, Beri, Voltar, Interrogacao, NewGame, LoadGame
 from os import path
 import pygame
 from classes import Button, Berinjela
@@ -30,7 +30,23 @@ def telainicial(screen):
     running = True
     keysdown = {}
 
+    botaoint = Button(((largura/2)-25),600,btns[Interrogacao])
+    botaonew = Button(((largura/2)-225), 450, btns[NewGame])
+    botaoload = Button(((largura/2)+25), 450, btns[LoadGame])
+
     while running:
+
+        # A cada loop, redesenha o fundo e os sprites
+        screen.fill(Roxo)
+        screen.blit(fundo, fundo_rect)
+        screen.blit(beri.image, beri.rect)
+
+        int = botaoint.aparecer(screen, btns[Interrogacao])
+        new = botaonew.aparecer(screen, btns[NewGame])
+        load = botaoload.aparecer(screen, btns[LoadGame])
+
+        # Botoes
+
 
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
@@ -52,12 +68,6 @@ def telainicial(screen):
                 else:
                     state = jogando
                     running = False
-
-        # A cada loop, redesenha o fundo e os sprites
-        screen.fill(Roxo)
-        screen.blit(fundo, fundo_rect)
-        screen.blit(beri.image, beri.rect)
-
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
