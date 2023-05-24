@@ -1,6 +1,6 @@
 # Tela Jogando
 
-from config import largura, altura, fps, quit, jogando, skins, Roxo
+from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes
 from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela
@@ -13,7 +13,8 @@ pygame.display.set_caption('Berigela Clicker')
 
 assets = load_assets()[0]
 btns = load_assets()[1]
-
+pygame.font.init()
+font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
 # ----- Inicia estruturas de dados
 def telajogo(screen):
     # Variável para o ajuste de velocidade
@@ -43,6 +44,12 @@ def telajogo(screen):
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
 
+        text = font.render(str(money), True, (255,255,255))
+        textRect = text.get_rect()
+        textRect.center = (75,35)
+
+        screen.blit(text,textRect)
+
         # Desenha botoes de Upgrade.
         up1 = botaoup1.aparecer(screen, btns[Upgrade])
         up2 = botaoup2.aparecer(screen, btns[Upgrade])
@@ -53,8 +60,6 @@ def telajogo(screen):
         beri = botaoberi.Botaoberi(screen, assets[Beri], ((largura/2)-100), ((altura/2)-200))
         butskins = botaoskins.aparecer(screen, btns[BSkins])
 
-
-        # Desenha Dindin
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
 
@@ -73,6 +78,7 @@ def telajogo(screen):
                     running = False
             if beri:
                 money += 1
+                Foi = False
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
