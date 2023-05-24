@@ -22,21 +22,21 @@ def telajogo(screen):
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
-
     # Prepara os botoes.
-    xeup = (largura/2)-95
-    xdup = (largura/2)+xeup
-
-    botaoup1 = Button(xeup,434,btns[Upgrade])
-    botaoup2 = Button(xeup,540,btns[Upgrade])
-    botaoup3 = Button(xeup,646,btns[Upgrade])
-    botaoup4 = Button(xdup,434,btns[Upgrade])
-    botaoup5 = Button(xdup,540,btns[Upgrade])
-    botaoup6 = Button(xdup,646,btns[Upgrade])
+    xe = (largura/2)-95
+    xd = (largura/2)+xe
+    botaoup1 = Button(xe,434,btns[Upgrade])
+    botaoup2 = Button(xe,540,btns[Upgrade])
+    botaoup3 = Button(xe,646,btns[Upgrade])
+    botaoup4 = Button(xd,434,btns[Upgrade])
+    botaoup5 = Button(xd,540,btns[Upgrade])
+    botaoup6 = Button(xd,646,btns[Upgrade])
     botaoberi = Berinjela(assets[Beri], (200,200))
     botaoskins = Button(10,65,btns[BSkins])
 
+    money = 0
     running = True
+
     keysdown = {}
     while running:
         # A cada loop, redesenha o fundo e os sprites
@@ -53,6 +53,8 @@ def telajogo(screen):
         beri = botaoberi.Botaoberi(screen, assets[Beri], ((largura/2)-100), ((altura/2)-200))
         butskins = botaoskins.aparecer(screen, btns[BSkins])
 
+
+        # Desenha Dindin
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
 
@@ -69,9 +71,12 @@ def telajogo(screen):
                 if event.key == pygame.K_RIGHT:
                     state = skins
                     running = False
+            if beri:
+                money += 1
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
+        pygame.display.update()
 
 
     return state
