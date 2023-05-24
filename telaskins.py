@@ -65,6 +65,13 @@ def telaskins(screen):
                     estado_botoes[botao] = 'selecionar'
             elif estado == 'selecionar':
                 botao.aparecer(screen, btns[Selecionar])
+                if botao.aparecer(screen, btns[Selecionar]):
+                 # Botão foi clicado, atualiza o estado para 'selecionar'
+                    estado_botoes[botao] = 'selecionado'
+            elif estado == 'selecionado':
+                botao.aparecer(screen, btns[Selecionado])
+                
+            
         
         v = botaov.aparecer(screen, btns[Voltar])
         
