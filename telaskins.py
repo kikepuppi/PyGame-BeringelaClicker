@@ -20,8 +20,13 @@ def telaskins(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
-    Comprado = False
-    SelecionadoEstado = False
+    Comprado1 = False
+    Comprado2 = False
+    Comprado3 = False
+    Selecionar1 = 0
+    Selecionar2 = 0
+    Selecionar3 = 0
+    Selecionado1 = False
 
     botaoC1 = Button(((largura/2)+35),((altura/3)-40), btns[Comprar])
     botaoC2 = Button(((largura/2)+35),((altura/3)+160), btns[Comprar])
@@ -52,9 +57,14 @@ def telaskins(screen):
         # desenha botoes
     
         v = botaov.aparecer(screen, btns[Voltar])
-        bC1 = botaoC1.aparecer(screen, btns[Comprar])
-        bC2 = botaoC2.aparecer(screen, btns[Comprar])
-        bC3 = botaoC3.aparecer(screen, btns[Comprar])
+        if Comprado1 == False:
+            b1 = botaoC1.aparecer(screen, btns[Comprar])
+        if Comprado2 == False:
+            b2 = botaoC2.aparecer(screen, btns[Comprar])
+        if Comprado3 == False:
+            b3 = botaoC3.aparecer(screen, btns[Comprar])
+        if Selecionar1 == 1:
+            b1 = botaoS1.aparecer(screen, btns[Selecionar])
         
         
         # Ajusta a velocidade do jogo.
@@ -70,6 +80,11 @@ def telaskins(screen):
             if v:
                 state = jogando
                 running = False
+            
+            if b1:
+                Comprado = True
+                Selecionar1 = 1
+
 
 
         # Depois de desenhar tudo, inverte o display.
