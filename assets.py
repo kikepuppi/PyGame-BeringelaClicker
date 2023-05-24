@@ -24,7 +24,6 @@ def load_assets():
     #Assets
 
     assets = {}
-    btns = {}
 
     assets[TelaI] = pygame.image.load(os.path.join(Imagens, 'TelaInicial.png')).convert()
     assets[TelaI] = pygame.transform.scale(assets[TelaI], (largura, altura))
@@ -36,6 +35,11 @@ def load_assets():
     assets[TelaC] = pygame.transform.scale(assets[TelaC], (largura, altura))
     assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha()]
     assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200))]
+
+    #Botoes
+
+    btns = {}
+    
     btns[Comprar] = [pygame.image.load(os.path.join(Botoes, 'Comprar1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'Comprar2.png')).convert()]
     btns[Comprar] = [pygame.transform.scale(btns[Comprar][0], (100, 100)),pygame.transform.scale(btns[Comprar][1], (100, 100))]
     btns[Voltar] = [pygame.image.load(os.path.join(Botoes, 'Voltar1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Voltar2.png')).convert_alpha()]
