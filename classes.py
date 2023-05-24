@@ -37,7 +37,7 @@ class Berinjela(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         self.image = img
-        self.image = pygame.transform.scale(img, tam)
+        self.image = pygame.transform.scale(img[0], tam)
         self.rect = self.image.get_rect()
         self.rect.centerx = largura/2
         self.rect.centery = (altura)/2-60
@@ -58,10 +58,9 @@ class Berinjela(pygame.sprite.Sprite):
                 apertou = True
                 self.image = imagem[1]
 
-
-        if self.rect.collidepoint(pos) == False:
-            self.image = imagem[0]
-
+            elif pygame.mouse.get_pressed()[0] == False:
+                apertou = True
+                self.image = imagem[0]
 
         screen.blit(self.image, self.rect)  
 

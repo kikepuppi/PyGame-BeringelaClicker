@@ -30,7 +30,7 @@ def telajogo(screen):
     botaoup4 = Button(10,10,btns[Upgrade])
     botaoup5 = Button(10,10,btns[Upgrade])
     botaoup6 = Button(10,10,btns[Upgrade])
-    botaoberi = Berinjela(btns[Beri], (200,200))
+    botaoberi = Berinjela(assets[Beri], (200,200))
 
     running = True
     keysdown = {}
@@ -46,7 +46,7 @@ def telajogo(screen):
         up4 = botaoup4.aparecer(screen, btns[Upgrade])
         up5 = botaoup5.aparecer(screen, btns[Upgrade])
         up6 = botaoup6.aparecer(screen, btns[Upgrade])
-        beri = botaoberi.Botaoberi(screen, assets[Beri], ((largura/2)-100), ((altura/2)-250))
+        beri = botaoberi.Botaoberi(screen, assets[Beri], ((largura/2)-100), ((altura/2)-200))
 
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
