@@ -13,7 +13,7 @@ pygame.mixer.init()
 
 # ----- Gera tela principal
 tela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Beringela Clicker ')
+pygame.display.set_caption('Berinjela Clicker')
 
 state = iniciando
 while state != quit:
