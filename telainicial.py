@@ -1,16 +1,22 @@
 # Tela Inicial
 
-from config import largura, altura, fps, quit, jogando, Roxo
-from assets import TelaI, load_assets
+from config import largura, altura, fps, quit, jogando, Roxo, instru
+from assets import TelaI, load_assets, Beri, Voltar
 from os import path
 import pygame
-
+from classes import Button, Berinjela
 
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berigela Clicker')
 
 
 assets = load_assets()[0]
+btns = load_assets()[1]
+
+# criando a berinjela
+
+beri = Berinjela(assets[Beri][0])
+
 
 # ----- Inicia estruturas de dados
 def telainicial(screen):
@@ -22,6 +28,7 @@ def telainicial(screen):
     fundo_rect = fundo.get_rect()
 
     running = True
+    keysdown = {}
 
     while running:
 
@@ -35,15 +42,25 @@ def telainicial(screen):
                 state = quit
                 running = False
 
-            if event.type == pygame.KEYUP:
-                state = jogando
-                running = False
+            if event.type == pygame.KEYDOWN:
+                keysdown[event.key] = True
+                
+            if event.type == pygame.KEYUP and keysdown[event.key]:
+                if event.key == pygame.K_t:
+                    state = instru
+                    running = False
+                else:
+                    state = jogando
+                    running = False
 
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
+        screen.blit(beri.image, beri.rect)
+
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
+        pygame.display.update()
 
     return state

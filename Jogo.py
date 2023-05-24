@@ -2,10 +2,11 @@
 
 import pygame
 import os 
-from config import largura, altura, fps, iniciando, quit, jogando, skins 
+from config import largura, altura, fps, iniciando, quit, jogando, skins, instru 
 from telainicial import telainicial
 from telajogo import telajogo
 from telaskins import telaskins
+from telacomojogar import telacomojogar
 
 pygame.init()
 pygame.mixer.init()
@@ -22,6 +23,8 @@ while state != quit:
         state = telajogo(tela)
     elif state == skins:
         state = telaskins(tela)
+    elif state == instru:
+        state = telacomojogar(tela)
     else:
         state = quit
 
