@@ -36,6 +36,7 @@ def telajogo(screen):
     botaoskins = Button(10,65,btns[BSkins])
 
     money = 0
+    dima = 0
     running = True
 
     keysdown = {}
@@ -44,11 +45,15 @@ def telajogo(screen):
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
 
-        text = font.render(str(money), True, (255,255,255))
-        textRect = text.get_rect()
-        textRect.center = (75,35)
+        textmoney = font.render(str(money), True, (255,255,255))
+        textdima = font.render(str(dima), True, (255,255,255))
+        textmoneyRect = textmoney.get_rect()
+        textdimaRect = textdima.get_rect()
+        textmoneyRect.center = (75,33)
+        textdimaRect.center = (475,33)
 
-        screen.blit(text,textRect)
+        screen.blit(textmoney,textmoneyRect)
+        screen.blit(textdima,textdimaRect)
 
         # Desenha botoes de Upgrade.
         up1 = botaoup1.aparecer(screen, btns[Upgrade])
@@ -79,6 +84,9 @@ def telajogo(screen):
             if beri:
                 money += 1
                 Foi = False
+            if butskins:
+                state = skins
+                running = False
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
