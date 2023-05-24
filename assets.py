@@ -41,7 +41,7 @@ def load_assets():
     btns = {}
     
     btns[Comprar] = [pygame.image.load(os.path.join(Botoes, 'Comprar1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Comprar2.png')).convert_alpha()]
-    btns[Comprar] = [pygame.transform.scale(btns[Comprar][0], (100, 100)),pygame.transform.scale(btns[Comprar][1], (100, 100))]
+    btns[Comprar] = [pygame.transform.scale(btns[Comprar][0], (200, 75)),pygame.transform.scale(btns[Comprar][1], (200, 75))]
     btns[Voltar] = [pygame.image.load(os.path.join(Botoes, 'Voltar1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Voltar2.png')).convert_alpha()]
     btns[Voltar] = [pygame.transform.scale(btns[Voltar][0], (50, 50)),pygame.transform.scale(btns[Voltar][1], (50, 50))]
     btns[Interrogacao] = [pygame.image.load(os.path.join(Botoes, 'Interrogação1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Interrogação2.png')).convert_alpha()]
