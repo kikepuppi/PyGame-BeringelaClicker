@@ -60,7 +60,7 @@ def load_assets():
     btns[Selecionado] = [pygame.image.load(os.path.join(Botoes, 'Selecionado1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'Selecionado2.png')).convert_alpha()]
     btns[Selecionado] = [pygame.transform.scale(btns[Selecionado][0], (100, 100)),pygame.transform.scale(btns[Selecionado][1], (100, 100))]
     btns[Selecionar] = [pygame.image.load(os.path.join(Botoes, 'Selecionar1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Selecionar2.png')).convert_alpha()]
-    btns[Selecionar] = [pygame.transform.scale(btns[Selecionar][0], (100, 100)), pygame.transform.scale(btns[Selecionar][1], (100, 100))]
+    btns[Selecionar] = [pygame.transform.scale(btns[Selecionar][0], (200, 75)), pygame.transform.scale(btns[Selecionar][1], (200, 75))]
     btns[BSkins] = [pygame.image.load(os.path.join(Botoes, 'Skins1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Skins2.png')).convert_alpha()]
     btns[BSkins] = [pygame.transform.scale(btns[BSkins][0], (100, 100)),pygame.transform.scale(btns[BSkins][1], (100, 100))]
     btns[Upgrade] = [pygame.image.load(os.path.join(Botoes, 'Upgrade1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Upgrade2.png')).convert_alpha()]
