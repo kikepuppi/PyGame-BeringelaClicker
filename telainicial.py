@@ -31,8 +31,8 @@ def telainicial(screen):
     keysdown = {}
 
     botaoint = Button(((largura/2)-25),600,btns[Interrogacao])
-    botaonew = Button(((largura/2)-225), 400, btns[NewGame])
-    botaoload = Button(((largura/2)+25), 400, btns[LoadGame])
+    botaonew = Button(((largura/2)-225), 450, btns[NewGame])
+    botaoload = Button(((largura/2)+25), 450, btns[LoadGame])
 
     while running:
 
