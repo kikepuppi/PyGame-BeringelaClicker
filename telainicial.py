@@ -15,7 +15,7 @@ btns = load_assets()[1]
 
 # criando a berinjela
 
-beri = Berinjela(assets[Beri][0], (200,200))
+beri = Berinjela(assets[Beri][0], (300,300))
 
 
 # ----- Inicia estruturas de dados
@@ -31,8 +31,8 @@ def telainicial(screen):
     keysdown = {}
 
     botaoint = Button(((largura/2)-25),600,btns[Interrogacao])
-    botaonew = Button(((largura/2)-225), 450, btns[NewGame])
-    botaoload = Button(((largura/2)+25), 450, btns[LoadGame])
+    botaonew = Button(((largura/2)-225), 470, btns[NewGame])
+    botaoload = Button(((largura/2)+25), 470, btns[LoadGame])
 
     while running:
 

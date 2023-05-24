@@ -40,4 +40,4 @@ class Berinjela(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(img, tam)
         self.rect = self.image.get_rect()
         self.rect.centerx = largura/2
-        self.rect.centery = (altura)/2-100
+        self.rect.centery = (altura)/2-60
