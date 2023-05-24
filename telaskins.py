@@ -21,7 +21,7 @@ def telaskins(screen):
     clock = pygame.time.Clock()
 
     Comprado = False
-    Selecionado = False
+    SelecionadoEstado = False
 
     botaoC1 = Button(((largura/2)+35),((altura/3)-40), btns[Comprar])
     botaoC2 = Button(((largura/2)+35),((altura/3)+160), btns[Comprar])
@@ -30,13 +30,6 @@ def telaskins(screen):
     botaoS1 = Button(((largura/2)+35),((altura/3)-40), btns[Selecionar])
     botaoS2 = Button(((largura/2)+35),((altura/3)+160), btns[Selecionar])
     botaoS3 = Button(((largura/2)+35),((altura/3)+370), btns[Selecionar])
-
-    estado_botoes = {
-    botaoC1: 'comprar', 
-    botaoC2: 'comprar',
-    botaoC3: 'comprar'
-}
-
 
     botaov = Button(10,10,btns[Voltar])
 
@@ -57,15 +50,7 @@ def telaskins(screen):
         
 
         # desenha botoes
-        
-        for botao, estado in estado_botoes.items():
-            if estado == 'comprar':
-                if botao.aparecer(screen, btns[Comprar]):
-                    # Botão foi clicado, atualiza o estado para 'selecionar'
-                    estado_botoes[botao] = 'selecionar'
-            elif estado == 'selecionar':
-                botao.aparecer(screen, btns[Selecionar])
-        
+    
         v = botaov.aparecer(screen, btns[Voltar])
         
         
