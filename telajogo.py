@@ -1,7 +1,7 @@
 # Tela Jogando
 
 from config import largura, altura, fps, quit, jogando, skins, Roxo
-from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri
+from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela
 import pygame
@@ -24,15 +24,17 @@ def telajogo(screen):
     fundo_rect = fundo.get_rect()
 
     # Prepara os botoes.
-    xe = (largura/2)-95
-    xd = (largura/2)+xe
-    botaoup1 = Button(xe,434,btns[Upgrade])
-    botaoup2 = Button(xe,540,btns[Upgrade])
-    botaoup3 = Button(xe,646,btns[Upgrade])
-    botaoup4 = Button(xd,434,btns[Upgrade])
-    botaoup5 = Button(xd,540,btns[Upgrade])
-    botaoup6 = Button(xd,646,btns[Upgrade])
+    xeup = (largura/2)-95
+    xdup = (largura/2)+xeup
+
+    botaoup1 = Button(xeup,434,btns[Upgrade])
+    botaoup2 = Button(xeup,540,btns[Upgrade])
+    botaoup3 = Button(xeup,646,btns[Upgrade])
+    botaoup4 = Button(xdup,434,btns[Upgrade])
+    botaoup5 = Button(xdup,540,btns[Upgrade])
+    botaoup6 = Button(xdup,646,btns[Upgrade])
     botaoberi = Berinjela(assets[Beri], (200,200))
+    botaoskins = Button(10,65,btns[BSkins])
 
     running = True
     keysdown = {}
@@ -49,6 +51,7 @@ def telajogo(screen):
         up5 = botaoup5.aparecer(screen, btns[Upgrade])
         up6 = botaoup6.aparecer(screen, btns[Upgrade])
         beri = botaoberi.Botaoberi(screen, assets[Beri], ((largura/2)-100), ((altura/2)-200))
+        butskins = botaoskins.aparecer(screen, btns[BSkins])
 
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
