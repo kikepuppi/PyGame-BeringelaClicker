@@ -33,8 +33,8 @@ def load_assets():
     assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
     assets[TelaC] = pygame.image.load(os.path.join(Imagens, 'TelaInstrucao.png')).convert()
     assets[TelaC] = pygame.transform.scale(assets[TelaC], (largura, altura))
-    assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha()]
-    assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200))]
+    assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_parada.png')).convert_alpha()]
+    assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
 
     #Botoes
 
