@@ -8,7 +8,7 @@ import pygame
 
 
 tela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Berigela Clicker')
+pygame.display.set_caption('Berijela Clicker')
 
 assets = load_assets()[0]
 btns = load_assets()[1]

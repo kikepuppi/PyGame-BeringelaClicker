@@ -5,9 +5,10 @@ from assets import TelaI, load_assets, Beri, Voltar, Interrogacao, NewGame, Load
 from os import path
 import pygame
 from classes import Button, Berinjela
+import json 
 
 tela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Berigela Clicker')
+pygame.display.set_caption('Berijela Clicker')
 
 
 assets = load_assets()[0]
@@ -45,9 +46,6 @@ def telainicial(screen):
         new = botaonew.aparecer(screen, btns[NewGame])
         load = botaoload.aparecer(screen, btns[LoadGame])
 
-        # Botoes
-
-
         # Ajusta a velocidade do jogo.
         clock.tick(fps)
 
@@ -65,9 +63,17 @@ def telainicial(screen):
             if new:
                 state = jogando
                 running = False
+            # Transformando de volta para JSON (texto)
+                save = {'Dinheiro': 0, "Gemas": 0}
+                novo_save = json.dumps(save)
+                # Salvando o arquivo
+                with open('save.json', 'w') as arquivo_json:
+                    arquivo_json.write(novo_save)
+            if load:
+                state = jogando
+                running = False
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
         pygame.display.update()
-
     return state

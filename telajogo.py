@@ -5,10 +5,13 @@ from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela
 import pygame
+import json
+
+
 
 
 tela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Berigela Clicker')
+pygame.display.set_caption('Berijela Clicker')
 
 assets = load_assets()[0]
 btns = load_assets()[1]
@@ -19,6 +22,11 @@ def telajogo(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
+    with open('save.json', 'r') as arquivo_json:
+        texto = arquivo_json.read()
+    goods = json.loads(texto)
+    money = goods['Dinheiro']
+    dima = goods['Gemas']
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
@@ -36,9 +44,6 @@ def telajogo(screen):
 
     running = True
 
-    money = 0
-    dima = 0
-    
     keysdown = {}
     while running:
         # A cada loop, redesenha o fundo e os sprites
@@ -83,7 +88,6 @@ def telajogo(screen):
                     running = False
             if beri:
                 money += 1
-                Foi = False
             if butskins:
                 state = skins
                 running = False
@@ -92,5 +96,14 @@ def telajogo(screen):
         pygame.display.flip()
         pygame.display.update()
 
+
+    save = {'Dinheiro':money, 'Gemas':dima}
+
+    # Transformando de volta para JSON (texto)
+    novo_save = json.dumps(save)
+
+    # Salvando o arquivo
+    with open('save.json', 'w') as arquivo_json:
+        arquivo_json.write(novo_save)
 
     return state
