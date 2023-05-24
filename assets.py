@@ -44,6 +44,7 @@ def load_assets():
     btns[Comprar] = [pygame.transform.scale(btns[Comprar][0], (100, 100)),pygame.transform.scale(btns[Comprar][1], (100, 100))]
     btns[Voltar] = [pygame.image.load(os.path.join(Botoes, 'Voltar1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Voltar2.png')).convert_alpha()]
     btns[Voltar] = [pygame.transform.scale(btns[Voltar][0], (50, 50)),pygame.transform.scale(btns[Voltar][1], (50, 50))]
+<<<<<<< HEAD
     btns[Interrogacao] = [pygame.image.load(os.path.join(Botoes, 'Interrogação1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Interrogação2.png')).convert_alpha()]
     btns[Interrogacao] = [pygame.transform.scale(btns[Interrogacao][0], (100, 100)),pygame.transform.scale(btns[Interrogacao][1], (100, 100))]
     btns[LoadGame] = [pygame.image.load(os.path.join(Botoes, 'LoadGame1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'LoadGame2.png')).convert_alpha()]
@@ -51,6 +52,15 @@ def load_assets():
     btns[NewGame] = [pygame.image.load(os.path.join(Botoes, 'NewGame1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'NewGame2.png')).convert_alpha()]
     btns[NewGame] = [pygame.transform.scale(btns[NewGame][0], (100, 100)),pygame.transform.scale(btns[NewGame][1], (100, 100))]
     btns[Selecionado] = [pygame.image.load(os.path.join(Botoes, 'Selecionado1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Selecionado2.png')).convert_alpha()]
+=======
+    btns[Interrogacao] = [pygame.image.load(os.path.join(Botoes, 'Interrogação1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'Interrogação2.png')).convert_alpha()]
+    btns[Interrogacao] = [pygame.transform.scale(btns[Interrogacao][0], (50, 50)),pygame.transform.scale(btns[Interrogacao][1], (50, 50))]
+    btns[LoadGame] = [pygame.image.load(os.path.join(Botoes, 'LoadGame1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'LoadGame2.png')).convert_alpha()]
+    btns[LoadGame] = [pygame.transform.scale(btns[LoadGame][0], (200, 100)),pygame.transform.scale(btns[LoadGame][1], (200, 100))]
+    btns[NewGame] = [pygame.image.load(os.path.join(Botoes, 'NewGame1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'NewGame2.png')).convert_alpha()]
+    btns[NewGame] = [pygame.transform.scale(btns[NewGame][0], (200, 100)),pygame.transform.scale(btns[NewGame][1], (200, 100))]
+    btns[Selecionado] = [pygame.image.load(os.path.join(Botoes, 'Selecionado1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'Selecionado2.png')).convert_alpha()]
+>>>>>>> 0e7d1e583a9abdce66c142d42f74fcf79e3764fb
     btns[Selecionado] = [pygame.transform.scale(btns[Selecionado][0], (100, 100)),pygame.transform.scale(btns[Selecionado][1], (100, 100))]
     btns[Selecionar] = [pygame.image.load(os.path.join(Botoes, 'Selecionar1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Selecionar2.png')).convert_alpha()]
     btns[Selecionar] = [pygame.transform.scale(btns[Selecionar][0], (100, 100)), pygame.transform.scale(btns[Selecionar][1], (100, 100))]
