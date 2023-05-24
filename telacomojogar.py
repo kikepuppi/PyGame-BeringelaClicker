@@ -48,17 +48,7 @@ def telacomojogar(screen):
             if v:
                 state = iniciando
                 running = False
-
-            if event.type == pygame.KEYDOWN:
-                keysdown[event.key] = True
-                
-            if event.type == pygame.KEYUP and keysdown[event.key]:
-                if event.key == pygame.K_BACKSPACE:
-                    state = iniciando
-                    running = False
         
-
-
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
 
