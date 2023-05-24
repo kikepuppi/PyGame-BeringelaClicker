@@ -77,7 +77,7 @@ def telajogo(screen):
         butskins = botaoskins.aparecer(screen, btns[BSkins])
 
         # Ajusta a velocidade do jogo.
-        clock.tick(30)
+        clock.tick(fps)
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
