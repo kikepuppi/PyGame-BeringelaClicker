@@ -70,7 +70,26 @@ def telaskins(screen):
         screen.blit(textdima,textdimaRect)
 
         # desenha botoes
+<<<<<<< HEAD
+        
+        for botao, estado in estado_botoes.items():
+            if estado == 'comprar':
+                if botao.aparecer(screen, btns[Comprar]):
+                    # Botão foi clicado, atualiza o estado para 'selecionar'
+                    estado_botoes[botao] = 'selecionar'
+            elif estado == 'selecionar':
+                botao.aparecer(screen, btns[Selecionar])
+                if botao.aparecer(screen, btns[Selecionar]):
+                 # Botão foi clicado, atualiza o estado para 'selecionar'
+                    estado_botoes[botao] = 'selecionado'
+            elif estado == 'selecionado':
+                botao.aparecer(screen, btns[Selecionado])
+                
+            
+        
+=======
     
+>>>>>>> c51b28a83364d620a5e5976ad16fafdb990350db
         v = botaov.aparecer(screen, btns[Voltar])
 
         if Comprado2 == False:
