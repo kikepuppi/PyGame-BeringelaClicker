@@ -37,7 +37,27 @@ class Berinjela(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
 
         self.image = img
-        self.image = pygame.transform.scale(img, tam)
+        self.image = pygame.transform.scale(img[0], tam)
         self.rect = self.image.get_rect()
         self.rect.centerx = largura/2
         self.rect.centery = (altura)/2-60
+
+    def Botaoberi(self, screen, imagem, x, y):
+ 
+        self.rect.x = x
+        self.rect.y = y
+
+        apertou = False
+
+        pos = pygame.mouse.get_pos()
+
+
+        if self.rect.collidepoint(pos):
+
+            if pygame.mouse.get_pressed()[0] == True:
+                apertou = True
+
+
+        screen.blit(self.image, self.rect)  
+
+        return apertou
