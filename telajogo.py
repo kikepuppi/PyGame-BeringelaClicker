@@ -10,7 +10,6 @@ import pygame
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berigela Clicker')
 
-
 assets = load_assets()[0]
 btns = load_assets()[1]
 pygame.font.init()
@@ -35,10 +34,11 @@ def telajogo(screen):
     botaoberi = Berinjela(assets[Beri], (200,200))
     botaoskins = Button(10,65,btns[BSkins])
 
-    money = 0
-    dima = 0
     running = True
 
+    money = 0
+    dima = 0
+    
     keysdown = {}
     while running:
         # A cada loop, redesenha o fundo e os sprites
