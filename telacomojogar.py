@@ -17,7 +17,7 @@ def telacomojogar(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
-    butao = Button(10,10,btns[Voltar])
+    botaov = Button(10,10,btns[Voltar])
 
     # Carrega o fundo da tela inicial
 
@@ -32,7 +32,9 @@ def telacomojogar(screen):
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
-        v = butao.aparecer(screen, btns[Voltar])
+
+        # desenha botoes
+        v = botaov.aparecer(screen, btns[Voltar])
 
         # Ajusta a velocidade do jogo.
         clock.tick(fps)

@@ -10,6 +10,7 @@ class Button():
         self.rect.topleft = (x,y)
      
     def aparecer(self, screen, imagem):
+        
         apertou = False
 
         pos = pygame.mouse.get_pos()
@@ -20,7 +21,7 @@ class Button():
 
             if pygame.mouse.get_pressed()[0] == True:
                 apertou = True
-                print('oi')
+
 
         if self.rect.collidepoint(pos) == False:
             self.image = imagem[0]
