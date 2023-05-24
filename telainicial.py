@@ -15,7 +15,7 @@ btns = load_assets()[1]
 
 # criando a berinjela
 
-beri = Berinjela(assets[Beri][0])
+beri = Berinjela(assets[Beri][0], (200,200))
 
 
 # ----- Inicia estruturas de dados

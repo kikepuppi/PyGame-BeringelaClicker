@@ -10,7 +10,7 @@ class Button():
         self.rect.topleft = (x,y)
      
     def aparecer(self, screen, imagem):
-        
+
         apertou = False
 
         pos = pygame.mouse.get_pos()
@@ -32,11 +32,12 @@ class Button():
         return apertou
     
 class Berinjela(pygame.sprite.Sprite):
-    def __init__(self, img):
+    def __init__(self, img, tam):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
         self.image = img
+        self.image = pygame.transform.scale(img, tam)
         self.rect = self.image.get_rect()
         self.rect.centerx = largura/2
         self.rect.centery = (altura)/2-100
