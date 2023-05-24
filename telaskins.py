@@ -52,6 +52,9 @@ def telaskins(screen):
         # desenha botoes
     
         v = botaov.aparecer(screen, btns[Voltar])
+        bC1 = botaoC1.aparecer(screen, btns[Comprar])
+        bC2 = botaoC2.aparecer(screen, btns[Comprar])
+        bC3 = botaoC3.aparecer(screen, btns[Comprar])
         
         
         # Ajusta a velocidade do jogo.
@@ -64,13 +67,9 @@ def telaskins(screen):
                 state = quit
                 running = False
 
-            if event.type == pygame.KEYDOWN:
-                keysdown[event.key] = True
-                
-            if event.type == pygame.KEYUP and keysdown[event.key]:
-                if event.key == pygame.K_LEFT:
-                    state = jogando
-                    running = False
+            if v:
+                state = jogando
+                running = False
 
 
         # Depois de desenhar tudo, inverte o display.
