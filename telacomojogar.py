@@ -29,6 +29,9 @@ def telacomojogar(screen):
 
     while running:
 
+        # A cada loop, redesenha o fundo e os sprites
+        screen.fill(Roxo)
+        screen.blit(fundo, fundo_rect)
         v = butao.aparecer(screen, btns[Voltar])
 
         # Ajusta a velocidade do jogo.
@@ -52,10 +55,6 @@ def telacomojogar(screen):
                     state = iniciando
                     running = False
         
-
-                # A cada loop, redesenha o fundo e os sprites
-        screen.fill(Roxo)
-        screen.blit(fundo, fundo_rect)
 
 
         # Depois de desenhar tudo, inverte o display.

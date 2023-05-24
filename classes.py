@@ -8,25 +8,23 @@ class Button():
         self.image = imagem[0]
         self.rect = self.image.get_rect()
         self.rect.topleft = (x,y)
-        self.clicked = False
      
     def aparecer(self, screen, imagem):
-
         apertou = False
+
         pos = pygame.mouse.get_pos()
+
 
         if self.rect.collidepoint(pos):
             self.image = imagem[1]
 
-            if pygame.mouse.get_pressed()[0] == True and self.clicked == False:
-                self.clicked = True
+            if pygame.mouse.get_pressed()[0] == True:
                 apertou = True
+                print('oi')
 
         if self.rect.collidepoint(pos) == False:
             self.image = imagem[0]
 
-        if pygame.mouse.get_pressed()[0] == False:
-            self.clicked = False
 
         screen.blit(self.image, self.rect)  
 
