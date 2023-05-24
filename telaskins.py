@@ -1,7 +1,7 @@
 # Tela das Skins de berinjela
 
 from config import largura, altura, fps, quit, jogando, Roxo, skins
-from assets import TelaI, TelaJ, TelaS, Selecionado, Selecionar, Comprar, load_assets
+from assets import TelaI, TelaJ, TelaS, Selecionado, Selecionar, Comprar, Voltar, load_assets
 from os import path
 from classes import Button 
 import pygame
@@ -31,6 +31,10 @@ def telaskins(screen):
     botaoS2 = Button(((largura/2)+35),((altura/3)+160), btns[Selecionar])
     botaoS3 = Button(((largura/2)+35),((altura/3)+370), btns[Selecionar])
 
+    
+
+    botaov = Button(10,10,btns[Voltar])
+
 
     # Carrega o fundo da tela inicial
     fundo = assets[TelaS]
@@ -52,6 +56,8 @@ def telaskins(screen):
             s1 = botaoC1.aparecer(screen, btns[Comprar])
             s2 = botaoC2.aparecer(screen, btns[Comprar])
             s3 = botaoC3.aparecer(screen, btns[Comprar])
+        
+        v = botaov.aparecer(screen, btns[Voltar])
         
         
         # Ajusta a velocidade do jogo.
@@ -83,6 +89,9 @@ def telaskins(screen):
                 Comprado = True
                 Selecionado = False
                 s3 = botaoS3.aparecer(screen, btns[Selecionar])
+            if v:
+                state = jogando
+                running = False
 
 
         # Depois de desenhar tudo, inverte o display.
