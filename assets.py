@@ -33,8 +33,8 @@ def load_assets():
     assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
     assets[TelaC] = pygame.image.load(os.path.join(Imagens, 'TelaInstrucao.png')).convert()
     assets[TelaC] = pygame.transform.scale(assets[TelaC], (largura, altura))
-    assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha()]
-    assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200))]
+    assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_parada.png')).convert_alpha()]
+    assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
 
     #Botoes
 
@@ -57,8 +57,8 @@ def load_assets():
     btns[LoadGame] = [pygame.transform.scale(btns[LoadGame][0], (200, 100)),pygame.transform.scale(btns[LoadGame][1], (200, 100))]
     btns[NewGame] = [pygame.image.load(os.path.join(Botoes, 'NewGame1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'NewGame2.png')).convert_alpha()]
     btns[NewGame] = [pygame.transform.scale(btns[NewGame][0], (200, 100)),pygame.transform.scale(btns[NewGame][1], (200, 100))]
-    btns[Selecionado] = [pygame.image.load(os.path.join(Botoes, 'Selecionado1.png')).convert(),pygame.image.load(os.path.join(Botoes, 'Selecionado2.png')).convert_alpha()]
-    btns[Selecionado] = [pygame.transform.scale(btns[Selecionado][0], (100, 100)),pygame.transform.scale(btns[Selecionado][1], (100, 100))]
+    btns[Selecionado] = [pygame.image.load(os.path.join(Botoes, 'Selecionado1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Selecionado2.png')).convert_alpha()]
+    btns[Selecionado] = [pygame.transform.scale(btns[Selecionado][0], (200, 75)),pygame.transform.scale(btns[Selecionado][1], (200, 75))]
     btns[Selecionar] = [pygame.image.load(os.path.join(Botoes, 'Selecionar1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Selecionar2.png')).convert_alpha()]
     btns[Selecionar] = [pygame.transform.scale(btns[Selecionar][0], (200, 75)), pygame.transform.scale(btns[Selecionar][1], (200, 75))]
     btns[BSkins] = [pygame.image.load(os.path.join(Botoes, 'Skins1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Skins2.png')).convert_alpha()]

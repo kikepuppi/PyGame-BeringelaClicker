@@ -5,11 +5,13 @@ from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela
 import pygame
+import json
+
+
 
 
 tela = pygame.display.set_mode((largura, altura))
-pygame.display.set_caption('Berigela Clicker')
-
+pygame.display.set_caption('Berijela Clicker')
 
 assets = load_assets()[0]
 btns = load_assets()[1]
@@ -20,6 +22,17 @@ def telajogo(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
+    with open('save.json', 'r') as arquivo_json:
+        texto = arquivo_json.read()
+    goods = json.loads(texto)
+    money = goods['Dinheiro']
+    dima = goods['Gemas']
+    Up1 = goods['Up1']
+    Up2 = goods['Up2']
+    Up3 = goods['Up3']
+    Up4 = goods['Up4']
+    Up5 = goods['Up5']
+    Up6 = goods['Up6']
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
@@ -35,8 +48,6 @@ def telajogo(screen):
     botaoberi = Berinjela(assets[Beri], (200,200))
     botaoskins = Button(10,65,btns[BSkins])
 
-    money = 0
-    dima = 0
     running = True
 
     keysdown = {}
@@ -49,7 +60,7 @@ def telajogo(screen):
         textdima = font.render(str(dima), True, (255,255,255))
         textmoneyRect = textmoney.get_rect()
         textdimaRect = textdima.get_rect()
-        textmoneyRect.center = (75,33)
+        textmoneyRect.center = (80,33)
         textdimaRect.center = (475,33)
 
         screen.blit(textmoney,textmoneyRect)
@@ -66,7 +77,7 @@ def telajogo(screen):
         butskins = botaoskins.aparecer(screen, btns[BSkins])
 
         # Ajusta a velocidade do jogo.
-        clock.tick(fps)
+        clock.tick(30)
 
         # Processa os eventos (mouse, teclado, botão, etc).
         for event in pygame.event.get():
@@ -83,14 +94,37 @@ def telajogo(screen):
                     running = False
             if beri:
                 money += 1
-                Foi = False
+
             if butskins:
                 state = skins
                 running = False
+            
+            if up1:
+                Up1 += 1
+            if up2:
+                Up2 += 1
+            if up3:
+                Up3 += 1
+            if up4:
+                Up4 += 1
+            if up5:
+                Up5 += 1
+            if up6:
+                Up6 += 1
+            
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
         pygame.display.update()
 
+
+    save = {'Dinheiro':money, 'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6}
+
+    # Transformando de volta para JSON (texto)
+    novo_save = json.dumps(save)
+
+    # Salvando o arquivo
+    with open('save.json', 'w') as arquivo_json:
+        arquivo_json.write(novo_save)
 
     return state
