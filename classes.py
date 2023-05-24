@@ -58,12 +58,13 @@ class Berinjela(pygame.sprite.Sprite):
         if self.rect.collidepoint(pos) == False:
             self.image = imagem[2]
         if self.rect.collidepoint(pos):
-            if pygame.mouse.get_pressed()[0] == True and elapsed_ticks > 20:
+            if pygame.mouse.get_pressed()[0] == True and elapsed_ticks > 50:
                 apertou = True
                 self.i += 1
                 if self.i % 2 == 1:
                     self.image = imagem[0]
-                elif self.i % 2 == 0:
+                pygame.time.delay(50)
+                if self.i % 2 == 0:
                     self.image = imagem[1]
                 self.last_update = pygame.time.get_ticks()
         pygame.time.delay(50)
