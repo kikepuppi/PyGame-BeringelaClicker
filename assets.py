@@ -64,7 +64,7 @@ def load_assets():
     btns[BSkins] = [pygame.image.load(os.path.join(Botoes, 'Skins1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Skins2.png')).convert_alpha()]
     btns[BSkins] = [pygame.transform.scale(btns[BSkins][0], (100, 100)),pygame.transform.scale(btns[BSkins][1], (100, 100))]
     btns[Upgrade] = [pygame.image.load(os.path.join(Botoes, 'Upgrade1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Upgrade2.png')).convert_alpha()]
-    btns[Upgrade] = [pygame.transform.scale(btns[Upgrade][0], (70, 40)), pygame.transform.scale(btns[Upgrade][1], (70, 40))]
+    btns[Upgrade] = [pygame.transform.scale(btns[Upgrade][0], (80, 40)), pygame.transform.scale(btns[Upgrade][1], (80, 40))]
 
 
     return [assets, btns]
