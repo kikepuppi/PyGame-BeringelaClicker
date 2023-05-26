@@ -65,10 +65,14 @@ def telainicial(screen):
                 running = False
             # Transformando de volta para JSON (texto)
                 save = {'Dinheiro': 0, "Gemas": 0, 'Up1': 0, 'Up2': 0, 'Up3': 0, 'Up4': 0, 'Up5': 0, 'Up6': 0}
+                skins = {'Comprado2': False, 'Comprado3': False, 'Selecionar1': 0, 'Selecionar2': 0, 'Selecionar3': 0, 'Selecionado1':1, 'Selecionado2':0, 'Selecionado3':0, 'Jacomprou1':True,'Jacomprou2':False,'Jacomprou3':False }
                 novo_save = json.dumps(save)
+                novo_skins = json.dumps(skins)
                 # Salvando o arquivo
                 with open('save.json', 'w') as arquivo_json:
                     arquivo_json.write(novo_save)
+                with open('skin.json', 'w') as arquivo_json:
+                    arquivo_json.write(novo_skins)
             if load:
                 state = jogando
                 running = False
