@@ -27,6 +27,7 @@ def telajogo(screen):
         texto = arquivo_json.read()
     goods = json.loads(texto)
     money = goods['Dinheiro']
+    soma = goods['Soma']
     dima = goods['Gemas']
     Up1 = goods['Up1']
     Up2 = goods['Up2']
@@ -55,7 +56,7 @@ def telajogo(screen):
     while running:
 
         preco1 = int(10*(1.5**(Up1)))
-        
+
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
@@ -99,7 +100,9 @@ def telajogo(screen):
                 if event.key == pygame.K_RIGHT:
                     state = skins
                     running = False
-
+            if beri:
+                money += soma
+                
             if butskins:
                 state = skins
                 running = False
@@ -107,8 +110,8 @@ def telajogo(screen):
             if up1 and money >= preco1:
                 Up1 += 1
                 money = int(money-preco1)
-                if beri:
-                    money == money**2 
+                soma += 1
+
             if up2:
                 Up2 += 1
             if up3:
@@ -128,7 +131,7 @@ def telajogo(screen):
         pygame.display.update()
 
 
-    save = {'Dinheiro':money, 'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6}
+    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6}
 
     # Transformando de volta para JSON (texto)
     novo_save = json.dumps(save)
