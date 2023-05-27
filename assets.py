@@ -2,7 +2,9 @@
 
 import pygame
 import os
-from config import largura, altura, Imagens, Botoes
+from config import largura, altura, Imagens, Botoes, Beringuela, Zedamanga
+import json
+
 
 TelaI = 'Tela Inicial'
 TelaJ = 'Tela Jogo'
@@ -20,7 +22,14 @@ Upgrade = 'Botão de Upgrade'
 Beri = 'Berinjela'
 
 def load_assets():
-    
+
+    with open('skin.json', 'r') as arquivo_json:
+        texto = arquivo_json.read()
+    skins = json.loads(texto)
+    sel1 = skins['Selecionado1']
+    sel2 = skins['Selecionado2']
+    sel3 = skins['Selecionado3']
+
     #Assets
 
     assets = {}
@@ -33,8 +42,16 @@ def load_assets():
     assets[TelaS] = pygame.transform.scale(assets[TelaS], (largura, altura))
     assets[TelaC] = pygame.image.load(os.path.join(Imagens, 'TelaInstrucao.png')).convert()
     assets[TelaC] = pygame.transform.scale(assets[TelaC], (largura, altura))
-    assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_parada.png')).convert_alpha()]
-    assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
+    if sel1 == 1:
+        assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_parada.png')).convert_alpha()]
+        assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
+    if sel2 == 1:
+        assets[Beri] = [pygame.image.load(os.path.join(Beringuela, 'beringuela.png')).convert_alpha(),pygame.image.load(os.path.join(Beringuela, 'beringuela_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Beringuela, 'beringuela_parada.png')).convert_alpha()]
+        assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
+    if sel3 == 1:
+        assets[Beri] = [pygame.image.load(os.path.join(Zedamanga, 'zedamanga.png')).convert_alpha(),pygame.image.load(os.path.join(Zedamanga, 'zedamanga_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Zedamanga, 'zedamanga_parado.png')).convert_alpha()]
+        assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
+ 
 
     #Botoes
 

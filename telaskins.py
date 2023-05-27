@@ -11,33 +11,42 @@ import json
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berijela Clicker')
 
-assets = load_assets()[0]
-btns = load_assets()[1]
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
 
 
 # ----- Inicia estruturas de dados
 def telaskins(screen):
+    
+    assets = load_assets()[0]
+    btns = load_assets()[1]
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
     with open('save.json', 'r') as arquivo_json:
         texto = arquivo_json.read()
     goods = json.loads(texto)
+
+    
+    with open('skin.json', 'r') as arquivo_json:
+        texto1 = arquivo_json.read()
+    
+    skinsdic = json.loads(texto1)
+    goods = json.loads(texto)
+
     dima = goods['Gemas']
 
-    Comprado2 = False
-    Comprado3 = False
-    Selecionar1 = 0
-    Selecionar2 = 0
-    Selecionar3 = 0
-    Selecionado1 = 1
-    Selecionado2 = 0
-    Selecionado3 = 0
-    Jacomprou1 = True
-    Jacomprou2 = False
-    Jacomprou3 = False
+    Comprado2 = skinsdic['Comprado2']
+    Comprado3 = skinsdic['Comprado3']
+    Selecionar1 = skinsdic['Selecionar1']
+    Selecionar2 = skinsdic['Selecionar2']
+    Selecionar3 = skinsdic['Selecionar3']
+    Selecionado1 = skinsdic['Selecionado1']
+    Selecionado2 = skinsdic['Selecionado2']
+    Selecionado3 = skinsdic['Selecionado3']
+    Jacomprou1 = skinsdic['Jacomprou1']
+    Jacomprou2 = skinsdic['Jacomprou2']
+    Jacomprou3 = skinsdic['Jacomprou3']
 
     #botaoC1 = Button(((largura/2)+35),((altura/3)-40), btns[Comprar])
     botaoC2 = Button(((largura/2)+35),((altura/3)+160), btns[Comprar])
@@ -140,6 +149,16 @@ def telaskins(screen):
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
         pygame.display.update()
+
+    skins = {'Comprado2': Comprado2, 'Comprado3': Comprado3, 'Selecionar1': Selecionar1, 'Selecionar2': Selecionar2, 'Selecionar3': Selecionar3, 'Selecionado1':Selecionado1, 'Selecionado2':Selecionado2, 'Selecionado3':Selecionado3, 'Jacomprou1':Jacomprou1,'Jacomprou2':Jacomprou3,'Jacomprou3':Jacomprou3 }
+
+    # Transformando de volta para JSON (texto)
+    novo_skins = json.dumps(skins)
+
+    # Salvando o arquivo
+    with open('skin.json', 'w') as arquivo_json:
+        arquivo_json.write(novo_skins)
+
 
 
     return state

@@ -13,14 +13,15 @@ import json
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berijela Clicker')
 
-assets = load_assets()[0]
-btns = load_assets()[1]
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
 # ----- Inicia estruturas de dados
 def telajogo(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+
+    assets = load_assets()[0]
+    btns = load_assets()[1]
 
     with open('save.json', 'r') as arquivo_json:
         texto = arquivo_json.read()
@@ -60,8 +61,11 @@ def telajogo(screen):
         textdima = font.render(str(dima), True, (255,255,255))
         textmoneyRect = textmoney.get_rect()
         textdimaRect = textdima.get_rect()
-        textmoneyRect.center = (80,33)
-        textdimaRect.center = (475,33)
+        textmoneyRect.x = 60
+        textmoneyRect.y = 20
+        textdimaRect.x = 465
+        textdimaRect.y = 20
+
 
         screen.blit(textmoney,textmoneyRect)
         screen.blit(textdima,textdimaRect)
