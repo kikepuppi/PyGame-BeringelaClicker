@@ -40,7 +40,7 @@ def telajogo(screen):
     Auto = goods['Auto']
     i = goods['Missao']
     clicks = goods['Clicks']
-    acumulado = 1
+    acumulado = goods['Acumulado']
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
@@ -70,10 +70,12 @@ def telajogo(screen):
 
         missoes = listamissoes(Up1,Up2,Up4,Up5,clicks,Auto,acumulado)
         missao_atual = missoes[i]
-        print(missao_atual)
         nome_missao = missao_atual[0]
         check = missao_atual[1]
         complete = missao_atual[2]
+
+        if check >= complete:
+            i += 1
         
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
@@ -128,6 +130,7 @@ def telajogo(screen):
                     running = False
             if beri:
                 money += soma
+                acumulado += soma
                 clicks += 1
                 
             if butskins:
@@ -184,7 +187,7 @@ def telajogo(screen):
         pygame.display.update()
 
 
-    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks}
+    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks, 'Acumulado': acumulado}
 
     # Transformando de volta para JSON (texto)
     novo_save = json.dumps(save)
