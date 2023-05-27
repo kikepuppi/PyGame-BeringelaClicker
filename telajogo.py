@@ -62,7 +62,7 @@ def telajogo(screen):
         preco4 = int(50000*(1.1**(Up4)))
         preco5 = int(100000*(1.5**(Up5)))
         preco6 = int(500000)
-
+#AAAAAAAAAA
         missoes = listamissoes()
         missao_atual = missoes[i]
         nome_missao = missao_atual[0]
