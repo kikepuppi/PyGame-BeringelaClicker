@@ -99,8 +99,6 @@ def telajogo(screen):
                 if event.key == pygame.K_RIGHT:
                     state = skins
                     running = False
-            if beri:
-                money += 1
 
             if butskins:
                 state = skins
@@ -109,6 +107,8 @@ def telajogo(screen):
             if up1 and money >= preco1:
                 Up1 += 1
                 money = int(money-preco1)
+                if beri:
+                    money == money**2 
             if up2:
                 Up2 += 1
             if up3:
@@ -119,6 +119,8 @@ def telajogo(screen):
                 Up5 += 1
             if up6:
                 Up6 += 1
+            
+            
             
 
         # Depois de desenhar tudo, inverte o display.
