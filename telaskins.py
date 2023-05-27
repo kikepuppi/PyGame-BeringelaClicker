@@ -31,7 +31,10 @@ def telaskins(screen):
     beri1 = pygame.transform.scale(beri1, (190, 190))
     beri1Rect = beri1.get_rect()
     beri1Rect.center = (90,185)
-    nomeberi = 'BERI'
+
+    textberi = font.render('BERI', True, (255,255,255))
+    textberiRect = textberi.get_rect()
+    textberiRect.center = (100, 185)
 
     beri2 = pygame.image.load(path.join(Beringuela, 'beringuela.png')).convert_alpha()
     beri2 = pygame.transform.scale(beri2, (190, 190))
@@ -113,9 +116,8 @@ def telaskins(screen):
         screen.blit(beri1, beri1Rect)
         screen.blit(beri2, beri2Rect)
         screen.blit(beri3, beri3Rect)
-        textberi1 = font.render(nomeberi, True, (255,255,255))
-        textberi1Rect = textberi1.get_rect()
-        textberi1Rect.center = (100, 185)
+        screen.blit(textberi, textberiRect)
+
 
         # desenha botoes
 
