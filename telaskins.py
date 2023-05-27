@@ -1,6 +1,6 @@
 # Tela das Skins de berinjela
 
-from config import largura, altura, fps, quit, jogando, Roxo, skins, Fontes, Imagens
+from config import largura, altura, fps, quit, jogando, Roxo, skins, Fontes, Imagens, Beringuela, Zedamanga
 from assets import TelaI, TelaJ, TelaS, Selecionado, Selecionar, Comprar, Voltar, load_assets
 from os import path
 from classes import Button 
@@ -30,7 +30,17 @@ def telaskins(screen):
     beri1 = pygame.image.load(path.join(Imagens, 'beri.png')).convert_alpha()
     beri1 = pygame.transform.scale(beri1, (190, 190))
     beri1Rect = beri1.get_rect()
-    beri1Rect.center = (120,185)
+    beri1Rect.center = (165,185)
+
+    beri2 = pygame.image.load(path.join(Beringuela, 'beringuela.png')).convert_alpha()
+    beri2 = pygame.transform.scale(beri2, (190, 190))
+    beri2Rect = beri2.get_rect()
+    beri2Rect.center = (165,((altura/3)+160))
+
+    beri3 = pygame.image.load(path.join(Zedamanga, 'zedamanga.png')).convert_alpha()
+    beri3 = pygame.transform.scale(beri3, (190, 190))
+    beri3Rect = beri3.get_rect()
+    beri3Rect.center = (165,((altura/3)+370))
     
     with open('skin.json', 'r') as arquivo_json:
         texto1 = arquivo_json.read()
@@ -100,7 +110,8 @@ def telaskins(screen):
         textdimaRect.y = 20
         screen.blit(textdima,textdimaRect)
         screen.blit(beri1, beri1Rect)
-
+        screen.blit(beri2, beri2Rect)
+        screen.blit(beri3, beri3Rect)
 
         # desenha botoes
 
