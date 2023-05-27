@@ -58,7 +58,7 @@ def telajogo(screen):
 
         preco1 = int(10*(1.5**(Up1)))
         preco2 = int(1000*(1.1**(Up2)))
-
+        print(preco2)
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
@@ -144,7 +144,7 @@ def telajogo(screen):
         pygame.display.update()
 
 
-    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6}
+    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto}
 
     # Transformando de volta para JSON (texto)
     novo_save = json.dumps(save)
