@@ -56,6 +56,7 @@ def telajogo(screen):
     botaoberi = Berinjela(assets[Beri], (200,200))
     botaoskins = Button(10,65,btns[BSkins])
 
+
     running = True
 
     keysdown = {}
