@@ -1,15 +1,12 @@
 # Tela Jogando
 
-from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes
+from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes, Imagens
 from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela
 import pygame
 import json
 from missoes import listamissoes
-
-
-
 
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berijela Clicker')
@@ -22,6 +19,11 @@ font3 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),12)
 def telajogo(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+
+    moneyfoto = pygame.image.load(path.join(Imagens, 'money.png')).convert_alpha()
+    moneyfoto = pygame.transform.scale(moneyfoto, (28, 28))
+    moneyfotoRect = moneyfoto.get_rect()
+    moneyfotoRect.center = (((largura/2)-1),365)
 
     assets = load_assets()[0]
     btns = load_assets()[1]
@@ -42,6 +44,7 @@ def telajogo(screen):
     i = goods['Missao']
     clicks = goods['Clicks']
     acumulado = goods['Acumulado']
+    acumuladoauto = goods['AcumuladoAuto']
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
@@ -56,12 +59,19 @@ def telajogo(screen):
     botaoup6 = Button(xd,646,btns[Upgrade])
     botaoberi = Berinjela(assets[Beri], (200,200))
     botaoskins = Button(10,65,btns[BSkins])
-
+    now = 0
+    ultimo = 0
 
     running = True
 
     keysdown = {}
     while running:
+        now = pygame.time.get_ticks() - ultimo
+        if now >= 1000:
+            money += Auto
+            now = 0
+            ultimo = pygame.time.get_ticks()
+            acumuladoauto += Auto
 
         preco1 = int(10*(1.5**(Up1)))
         preco2 = int(1000*(1.1**(Up2)))
@@ -70,7 +80,7 @@ def telajogo(screen):
         preco5 = int(100000*(1.5**(Up5)))
         preco6 = int(500000000)
 
-        missoes = listamissoes(Up1,Up2,Up4,Up5,clicks,Auto,acumulado)
+        missoes = listamissoes(Up1,Up2,Up4,Up5,clicks,acumuladoauto,acumulado)
         missao_atual = missoes[i]
         nome_missao = missao_atual[0]
         check = missao_atual[1]
@@ -158,6 +168,9 @@ def telajogo(screen):
         textP6 = font3.render(('$500 M'), True, (255,255,255))
         textP6Rect = textP6.get_rect()
         textP6Rect.center = (440,675)
+        textseg = font.render(('{0}  /s'.format(Auto)), True, (255,255,255))
+        textsegRect = textseg.get_rect()
+        textsegRect.center = (largura/2+5,363)
 
 
         screen.blit(textmoney,textmoneyRect)
@@ -176,6 +189,8 @@ def telajogo(screen):
         screen.blit(textP5,textP5Rect)
         screen.blit(textUP6,textUP6Rect)
         screen.blit(textP6,textP6Rect)
+        screen.blit(textseg,textsegRect)
+        screen.blit(moneyfoto, moneyfotoRect)
 
         # Desenha botoes de Upgrade.
         up1 = botaoup1.aparecer(screen, btns[Upgrade])
@@ -262,7 +277,7 @@ def telajogo(screen):
         pygame.display.update()
 
 
-    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks, 'Acumulado': acumulado}
+    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks, 'Acumulado': acumulado, 'AcumuladoAuto': acumuladoauto}
 
     # Transformando de volta para JSON (texto)
     novo_save = json.dumps(save)

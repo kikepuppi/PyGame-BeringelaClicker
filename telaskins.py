@@ -52,11 +52,11 @@ def telaskins(screen):
 
     textze = font.render('ZE', True, (255,255,255))
     textzerect = textze.get_rect()
-    textzerect.center = (((largura/2)-50), (altura/3)+370)
+    textzerect.center = (((largura/2)-50), (altura/3)+360)
 
     textmanga = font.render('DA MANGA', True, (255, 255, 255))
     textmangarect = textmanga.get_rect()
-    textmangarect.center = (((largura/2)-50), (altura/3)+ 390)
+    textmangarect.center = (((largura/2)-50), (altura/3)+ 380)
 
     
     with open('skin.json', 'r') as arquivo_json:

@@ -18,7 +18,7 @@ Up4 = goods['Up4']
 Up5 = goods['Up5']
 Up6 = goods['Up6']
 clicks = goods['Clicks']
-auto = goods['Auto']
+auto = goods['AcumuladoAuto']
 acumulado = goods['Acumulado']
 
 def listamissoes(Up1,Up2,Up4,Up5,clicks,auto,acumulado):

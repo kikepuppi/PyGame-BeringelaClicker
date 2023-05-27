@@ -69,7 +69,9 @@ class Berinjela(pygame.sprite.Sprite):
                 if self.i % 2 == 0:
                     self.image = imagem[1]
                 self.last_update = pygame.time.get_ticks()
-        if soltou == False:
+        if pygame.mouse.get_pressed()[0] == True:
+            soltou = False
+        else:
             soltou = True
         pygame.time.delay(50)
         screen.blit(self.image, self.rect)  
