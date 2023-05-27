@@ -39,6 +39,8 @@ def telajogo(screen):
     Up6 = goods['Up6']
     Auto = goods['Auto']
     i = goods['Missao']
+    clicks = goods['Clicks']
+    acumulado = 1
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
@@ -66,8 +68,9 @@ def telajogo(screen):
         preco5 = int(100000*(1.5**(Up5)))
         preco6 = int(500000)
 
-        missoes = listamissoes()
+        missoes = listamissoes(Up1,Up2,Up4,Up5,clicks,Auto,acumulado)
         missao_atual = missoes[i]
+        print(missao_atual)
         nome_missao = missao_atual[0]
         check = missao_atual[1]
         complete = missao_atual[2]
@@ -125,6 +128,7 @@ def telajogo(screen):
                     running = False
             if beri:
                 money += soma
+                clicks += 1
                 
             if butskins:
                 state = skins
@@ -180,7 +184,7 @@ def telajogo(screen):
         pygame.display.update()
 
 
-    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i}
+    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks}
 
     # Transformando de volta para JSON (texto)
     novo_save = json.dumps(save)

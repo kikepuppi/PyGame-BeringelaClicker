@@ -17,12 +17,11 @@ Up3 = goods['Up3']
 Up4 = goods['Up4']
 Up5 = goods['Up5']
 Up6 = goods['Up6']
-clicks = 99
-#auto = goods['Auto']
-auto = 1
+clicks = goods['Clicks']
+auto = goods['Auto']
 acumulado = 1
 
-def listamissoes():
+def listamissoes(Up1,Up2,Up4,Up5,clicks,auto,acumulado):
     missoes = {
     1:['Clique na Berinjela 100 vezes:', clicks, 100],
     2:['Tenha 5 Clicks:', Up1, 5],
