@@ -34,17 +34,30 @@ def telaskins(screen):
 
     textberi = font.render('BERI', True, (255,255,255))
     textberiRect = textberi.get_rect()
-    textberiRect.center = (100, 185)
+    textberiRect.center = (((largura/2)-65), 185)
 
     beri2 = pygame.image.load(path.join(Beringuela, 'beringuela.png')).convert_alpha()
     beri2 = pygame.transform.scale(beri2, (190, 190))
     beri2Rect = beri2.get_rect()
-    beri2Rect.center = (165,((altura/3)+160))
+    beri2Rect.center = (90,((altura/3)+160))
+
+    textberinguela = font.render('BERINGUELA', True, (255,255,255))
+    textberinguelarect = textberinguela.get_rect()
+    textberinguelarect.center = (((largura/2)-55), (altura/3)+160)
 
     beri3 = pygame.image.load(path.join(Zedamanga, 'zedamanga.png')).convert_alpha()
     beri3 = pygame.transform.scale(beri3, (190, 190))
     beri3Rect = beri3.get_rect()
-    beri3Rect.center = (165,((altura/3)+370))
+    beri3Rect.center = (90,((altura/3)+370))
+
+    textze = font.render('ZE', True, (255,255,255))
+    textzerect = textze.get_rect()
+    textzerect.center = (((largura/2)-50), (altura/3)+370)
+
+    textmanga = font.render('DA MANGA', True, (255, 255, 255))
+    textmangarect = textmanga.get_rect()
+    textmangarect.center = (((largura/2)-50), (altura/3)+ 390)
+
     
     with open('skin.json', 'r') as arquivo_json:
         texto1 = arquivo_json.read()
@@ -117,6 +130,9 @@ def telaskins(screen):
         screen.blit(beri2, beri2Rect)
         screen.blit(beri3, beri3Rect)
         screen.blit(textberi, textberiRect)
+        screen.blit(textberinguela, textberinguelarect)
+        screen.blit(textze, textzerect)
+        screen.blit(textmanga, textmangarect)
 
 
         # desenha botoes
