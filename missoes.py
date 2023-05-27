@@ -19,7 +19,7 @@ Up5 = goods['Up5']
 Up6 = goods['Up6']
 clicks = goods['Clicks']
 auto = goods['Auto']
-acumulado = 1
+acumulado = goods['Acumulado']
 
 def listamissoes(Up1,Up2,Up4,Up5,clicks,auto,acumulado):
     missoes = {
