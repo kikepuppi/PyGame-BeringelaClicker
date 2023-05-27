@@ -18,12 +18,13 @@ Up4 = goods['Up4']
 Up5 = goods['Up5']
 Up6 = goods['Up6']
 clicks = 99
-auto = goods['Auto']
+#auto = goods['Auto']
+auto = 1
 acumulado = 1
 
 def listamissoes():
     missoes = {
-    1:['Clique na Berinjela\n100 vezes:', clicks, 100],
+    1:['Clique na Berinjela 100 vezes:', clicks, 100],
     2:['Tenha 5 Clicks:', Up1, 5],
     3:['Gere 1.000 berinjelas:', acumulado, 1000],
     4:['Clique na berinjela 200 vezes:', clicks, 200],
@@ -46,3 +47,14 @@ def listamissoes():
     }
     return missoes
 
+i = 4
+
+missoes = listamissoes()
+missao_atual = missoes[i]
+nome_missao = missao_atual[0]
+check = missao_atual[1]
+complete = missao_atual[2]
+print(nome_missao)
+print('{0}/{1}'.format(check, complete))
+if check >= complete:
+      i+=1
