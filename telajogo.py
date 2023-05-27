@@ -37,6 +37,7 @@ def telajogo(screen):
     Up5 = goods['Up5']
     Up6 = goods['Up6']
     Auto = goods['Auto']
+    i = 1
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
