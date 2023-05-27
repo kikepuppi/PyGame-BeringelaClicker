@@ -24,36 +24,37 @@ acumulado = 1
 
 def listamissoes():
     missoes = {
-    1:['Clique na Berinjela 100 vezes', clicks, 100],
-    2:['Tenha 5 Clicks', Up1, 5],
-    3:['Gere 1.000 berinjelas', acumulado, 1000],
-    4:['Clique na berinjela 200 vezes', clicks, 200],
-    5:['Tenha 5 fazendeiros', Up2, 5],
-    6:['Gere 10.000 berinjelas', acumulado, 10000],
-    7:['Gere automaticamente 1.000 berinjelas', auto, 1000],
-    8:['Clique na berinjela 1.000 vezes', clicks, 1000],
-    9:['Tenha 10 Clicks', Up1, 10],
-    10:['Tenha 10 Fazendeiros', Up2, 10],
-    11:['Clique na berinjela 1.250 vezes', clicks, 1250],
-    12:['Gere 100.000 berinjelas', acumulado, 1000],
-    13:['Compre 1 Plantação Robotizada', Up4, 1],
-    14:['Gere automaticamente 50.000 berinjelas', auto, 50000],
-    15:['Tenha 22 Clicks', clicks, 22],
-    16:['Clique na berinjela 1.500 vezes', clicks, 1500],
-    17:['Tenha 3 Super Clicks', Up5, 3],
-    18:['Tenha 40 Fazendeiros', Up2, 40],
-    19:['Gere automaticamente 150.000 berinjelas', auto, 150000],
-    20:['Tenha 10 Super Clicks', Up5, 10]
+    1:['Clique na Berinjela 100 vezes:', clicks, 100],
+    2:['Tenha 5 Clicks:', Up1, 5],
+    3:['Gere 1.000 berinjelas:', acumulado, 1000],
+    4:['Clique na berinjela 200 vezes:', clicks, 200],
+    5:['Tenha 5 fazendeiros:', Up2, 5],
+    6:['Gere 10.000 berinjelas:', acumulado, 10000],
+    7:['Gere automaticamente 1.000 berinjelas:', auto, 1000],
+    8:['Clique na berinjela 1.000 vezes:', clicks, 1000],
+    9:['Tenha 10 Clicks:', Up1, 10],
+    10:['Tenha 10 Fazendeiros:', Up2, 10],
+    11:['Clique na berinjela 1.250 vezes:', clicks, 1250],
+    12:['Gere 100.000 berinjelas:', acumulado, 1000],
+    13:['Compre 1 Plantação Robotizada:', Up4, 1],
+    14:['Gere automaticamente 50.000 berinjelas:', auto, 50000],
+    15:['Tenha 22 Clicks:', clicks, 22],
+    16:['Clique na berinjela 1.500 vezes:', clicks, 1500],
+    17:['Tenha 3 Super Clicks:', Up5, 3],
+    18:['Tenha 40 Fazendeiros:', Up2, 40],
+    19:['Gere automaticamente 150.000 berinjelas:', auto, 150000],
+    20:['Tenha 10 Super Clicks:', Up5, 10]
     }
     return missoes
 
-i = 1
+i = 4
 
 missoes = listamissoes()
 missao_atual = missoes[i]
 nome_missao = missao_atual[0]
 check = missao_atual[1]
 complete = missao_atual[2]
+print(nome_missao)
 print('{0}/{1}'.format(check, complete))
 if check >= complete:
       i+=1
