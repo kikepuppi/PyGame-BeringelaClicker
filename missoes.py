@@ -18,7 +18,7 @@ Up4 = goods['Up4']
 Up5 = goods['Up5']
 Up6 = goods['Up6']
 clicks = 'x'
-auto = 'x'
+auto = goods['Auto']
 acumulado = 'x'
 
 def missoes():
@@ -42,7 +42,7 @@ def missoes():
     17:['Tenha 3 Super Clicks', Up5, 3],
     18:['Tenha 40 Fazendeiros', Up2, 40],
     19:['Gere automaticamente 150.000 berinjelas', auto, 150000],
-    20:['Tenha 10 Super Clicks', Up5, 10],
+    20:['Tenha 10 Super Clicks', Up5, 10]
     }
     return missoes
     
