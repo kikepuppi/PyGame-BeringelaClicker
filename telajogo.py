@@ -76,6 +76,7 @@ def telajogo(screen):
 
         if check >= complete:
             i += 1
+            dima += 1000
         
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
