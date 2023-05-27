@@ -53,6 +53,9 @@ def telajogo(screen):
 
     keysdown = {}
     while running:
+
+        preco1 = int(10*(1.5**(Up1)))
+        
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
@@ -103,8 +106,9 @@ def telajogo(screen):
                 state = skins
                 running = False
             
-            if up1:
+            if up1 and money >= preco1:
                 Up1 += 1
+                money = int(money-preco1)
             if up2:
                 Up2 += 1
             if up3:
