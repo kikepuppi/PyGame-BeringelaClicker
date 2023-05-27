@@ -46,15 +46,3 @@ def listamissoes():
     20:['Tenha 10 Super Clicks:', Up5, 10]
     }
     return missoes
-
-i = 4
-
-missoes = listamissoes()
-missao_atual = missoes[i]
-nome_missao = missao_atual[0]
-check = missao_atual[1]
-complete = missao_atual[2]
-print(nome_missao)
-print('{0}/{1}'.format(check, complete))
-if check >= complete:
-      i+=1

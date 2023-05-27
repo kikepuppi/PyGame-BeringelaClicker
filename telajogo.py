@@ -16,6 +16,7 @@ pygame.display.set_caption('Berijela Clicker')
 
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
+font2 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),10)
 # ----- Inicia estruturas de dados
 def telajogo(screen):
     # Variável para o ajuste de velocidade
@@ -37,7 +38,7 @@ def telajogo(screen):
     Up5 = goods['Up5']
     Up6 = goods['Up6']
     Auto = goods['Auto']
-    i = 1
+    i = goods['Missao']
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
@@ -64,7 +65,7 @@ def telajogo(screen):
         preco4 = int(50000*(1.1**(Up4)))
         preco5 = int(100000*(1.5**(Up5)))
         preco6 = int(500000)
-#AAAAAAAAAA
+
         missoes = listamissoes()
         missao_atual = missoes[i]
         nome_missao = missao_atual[0]
@@ -76,17 +77,25 @@ def telajogo(screen):
         screen.blit(fundo, fundo_rect)
 
         textmoney = font.render(str(money), True, (255,255,255))
-        textdima = font.render(str(dima), True, (255,255,255))
         textmoneyRect = textmoney.get_rect()
-        textdimaRect = textdima.get_rect()
         textmoneyRect.x = 60
         textmoneyRect.y = 20
+        textdima = font.render(str(dima), True, (255,255,255))
+        textdimaRect = textdima.get_rect()
         textdimaRect.x = 465
         textdimaRect.y = 20
+        textnomemissao = font2.render(nome_missao, True, (255,255,255))
+        textnomemissaoRect = textnomemissao.get_rect()
+        textnomemissaoRect.center = (430,80)
+        textqnt = font2.render(('{0}/{1}'.format(check, complete)), True, (255,255,255))
+        textqntRect = textqnt.get_rect()
+        textqntRect.center = (430,100)
 
 
         screen.blit(textmoney,textmoneyRect)
         screen.blit(textdima,textdimaRect)
+        screen.blit(textnomemissao,textnomemissaoRect)
+        screen.blit(textqnt,textqntRect)
 
         # Desenha botoes de Upgrade.
         up1 = botaoup1.aparecer(screen, btns[Upgrade])
@@ -125,38 +134,53 @@ def telajogo(screen):
                 Up1 += 1
                 money = int(money-preco1)
                 soma += 1
-                if Up1 >= 40:
-                    Up1 += 0
+                if Up1 > 40:
+                    Up1 -= 1
 
             if up2 and money >= preco2:
                 Up2 += 1
                 money = int(money-preco2)
                 Auto += 1
+                money += Auto
+                if Up2 > 100:
+                    Up2 -= 1
 
-                
-
-
-
-
-
-            if up3:
+            if up3 and money >= preco3:
                 Up3 += 1
-            if up4:
+                money = int(money-preco3)
+                money *= 0.5
+                if Up3 > 4:
+                    Up3 -= 1
+
+            if up4 and money>= preco4:
                 Up4 += 1
-            if up5:
+                money = int(money-preco4)
+                Auto += 100
+                money += Auto
+                if Up4> 100:
+                    Up4 -= 1
+
+            if up5 and money >= preco5:
                 Up5 += 1
-            if up6:
-                Up6 += 1
-            
-            
-            
+                money = int(money-preco5)
+                soma += 10
+                if Up5 >15:
+                    Up5 -= 1
+
+            if up6 and money >= preco6:
+                Up6+=1
+                money = int(money-preco6)
+                #não sei oq faz (mudar a tela talvez?)
+                if Up6 > 1:
+                    Up6 -= 1 #(acho q isso não vai precisar se a funcionalidade for oq parece 
+      
 
         # Depois de desenhar tudo, inverte o display.
         pygame.display.flip()
         pygame.display.update()
 
 
-    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto}
+    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i}
 
     # Transformando de volta para JSON (texto)
     novo_save = json.dumps(save)
