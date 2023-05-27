@@ -35,6 +35,7 @@ def telajogo(screen):
     Up4 = goods['Up4']
     Up5 = goods['Up5']
     Up6 = goods['Up6']
+    Auto = goods['Auto']
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
@@ -56,6 +57,7 @@ def telajogo(screen):
     while running:
 
         preco1 = int(10*(1.5**(Up1)))
+        preco2 = int(1000*(1.1**(Up2)))
 
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
@@ -111,9 +113,20 @@ def telajogo(screen):
                 Up1 += 1
                 money = int(money-preco1)
                 soma += 1
+                if Up1 >= 40:
+                    Up1 += 0
 
-            if up2:
+            if up2 and money >= preco2:
                 Up2 += 1
+                money = int(money-preco2)
+                Auto += 1
+
+                
+
+
+
+
+
             if up3:
                 Up3 += 1
             if up4:
