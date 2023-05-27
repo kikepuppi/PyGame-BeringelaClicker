@@ -48,6 +48,23 @@ def telaskins(screen):
     Jacomprou2 = skinsdic['Jacomprou2']
     Jacomprou3 = skinsdic['Jacomprou3']
 
+    with open('save.json', 'r') as arquivo_json:
+        texto = arquivo_json.read()
+    goods = json.loads(texto)
+    money = goods['Dinheiro']
+    soma = goods['Soma']
+    dima = goods['Gemas']
+    Up1 = goods['Up1']
+    Up2 = goods['Up2']
+    Up3 = goods['Up3']
+    Up4 = goods['Up4']
+    Up5 = goods['Up5']
+    Up6 = goods['Up6']
+    Auto = goods['Auto']
+    i = goods['Missao']
+    clicks = goods['Clicks']
+    acumulado = goods['Acumulado']
+
     #botaoC1 = Button(((largura/2)+35),((altura/3)-40), btns[Comprar])
     botaoC2 = Button(((largura/2)+35),((altura/3)+160), btns[Comprar])
     botaoC3 = Button(((largura/2)+35),((altura/3)+370), btns[Comprar])
@@ -75,7 +92,8 @@ def telaskins(screen):
 
         textdima = font.render(str(dima), True, (255,255,255))
         textdimaRect = textdima.get_rect()
-        textdimaRect.center = (475,33)
+        textdimaRect.x = 465
+        textdimaRect.y = 20
         screen.blit(textdima,textdimaRect)
 
         # desenha botoes
@@ -122,12 +140,14 @@ def telaskins(screen):
                 state = jogando
                 running = False
 
-            if b2 and Jacomprou2 == False:
+            if b2 and Jacomprou2 == False and dima >= 5000:
                 Comprado2 = True
                 Selecionar2 = 1
-            if b3 and Jacomprou3 == False:
+                dima -= 5000
+            if b3 and Jacomprou3 == False and dima >= 15000:
                 Comprado3 = True
                 Selecionar3 = 1
+                dima -= 15000
             if b1 and Jacomprou1 == True:
                 Selecionado1 = 1
                 Selecionado2 = 0
@@ -158,6 +178,15 @@ def telaskins(screen):
     # Salvando o arquivo
     with open('skin.json', 'w') as arquivo_json:
         arquivo_json.write(novo_skins)
+
+    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks, 'Acumulado': acumulado}
+
+    # Transformando de volta para JSON (texto)
+    novo_save = json.dumps(save)
+
+    # Salvando o arquivo
+    with open('save.json', 'w') as arquivo_json:
+        arquivo_json.write(novo_save)
 
 
 

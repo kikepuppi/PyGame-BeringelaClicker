@@ -16,7 +16,7 @@ pygame.display.set_caption('Berijela Clicker')
 
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
-font2 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),10)
+font2 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),9)
 # ----- Inicia estruturas de dados
 def telajogo(screen):
     # Variável para o ajuste de velocidade
