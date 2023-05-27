@@ -23,6 +23,9 @@ beri = Berinjela(assets[Beri], (300,300))
 def telainicial(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
+    
+    assets = load_assets()[0]
+    btns = load_assets()[1]
 
     # Carrega o fundo da tela inicial
     fundo = assets[TelaI]

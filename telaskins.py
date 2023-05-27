@@ -11,14 +11,15 @@ import json
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berijela Clicker')
 
-assets = load_assets()[0]
-btns = load_assets()[1]
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
 
 
 # ----- Inicia estruturas de dados
 def telaskins(screen):
+    
+    assets = load_assets()[0]
+    btns = load_assets()[1]
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 

@@ -30,7 +30,6 @@ def load_assets():
     sel2 = skins['Selecionado2']
     sel3 = skins['Selecionado3']
 
-
     #Assets
 
     assets = {}
@@ -50,7 +49,7 @@ def load_assets():
         assets[Beri] = [pygame.image.load(os.path.join(Beringuela, 'beringuela.png')).convert_alpha(),pygame.image.load(os.path.join(Beringuela, 'beringuela_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Beringuela, 'beringuela_parada.png')).convert_alpha()]
         assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
     if sel3 == 1:
-        assets[Beri] = [pygame.image.load(os.path.join(Zedamanga, 'zedamanga.png')).convert_alpha(),pygame.image.load(os.path.join(Zedamanga, 'zedamanga_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Zedamanga, 'zedamanga_parada.png')).convert_alpha()]
+        assets[Beri] = [pygame.image.load(os.path.join(Zedamanga, 'zedamanga.png')).convert_alpha(),pygame.image.load(os.path.join(Zedamanga, 'zedamanga_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Zedamanga, 'zedamanga_parado.png')).convert_alpha()]
         assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
  
 
