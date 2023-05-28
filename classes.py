@@ -79,5 +79,4 @@ class Berinjela(pygame.sprite.Sprite):
         pygame.time.delay(50)
         screen.blit(self.image, self.rect)  
 
-
         return apertou
