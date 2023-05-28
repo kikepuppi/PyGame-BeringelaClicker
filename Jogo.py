@@ -14,7 +14,7 @@ pygame.init()
 pygame.mixer.init()
 
 pygame.mixer.music.load(SomFundo)
-pygame.mixer.music.set_volume(0.4)
+pygame.mixer.music.set_volume(0.05)
 pygame.mixer.music.play(-1)
 
 

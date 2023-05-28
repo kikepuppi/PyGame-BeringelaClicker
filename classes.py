@@ -21,6 +21,7 @@ class Button():
 
             if pygame.mouse.get_pressed()[0] == True:
                 apertou = True
+                pygame.mixer.Channel(1).play(pygame.mixer.Sound(Click))
 
 
         if self.rect.collidepoint(pos) == False:
@@ -28,9 +29,7 @@ class Button():
 
 
         screen.blit(self.image, self.rect)  
-
-        if apertou:
-            pygame.mixer.Channel(1).play(pygame.mixer.Sound(Click))
+            
 
         return apertou
     
