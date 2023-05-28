@@ -40,7 +40,7 @@ def telafim(screen):
                 state = quit
                 running = False
             if event.type == pygame.MOUSEBUTTONUP:
-                state = iniciando
+                state = jogando
                 running = False
         
         # Depois de desenhar tudo, inverte o display.
