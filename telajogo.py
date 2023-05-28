@@ -1,6 +1,6 @@
 # Tela Jogando
 
-from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes, Imagens, fim
+from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes, Imagens, fim, SomFundo
 from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela

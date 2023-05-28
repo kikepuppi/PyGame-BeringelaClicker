@@ -89,5 +89,4 @@ def load_assets():
     btns[Upgrade] = [pygame.image.load(os.path.join(Botoes, 'Upgrade1.png')).convert_alpha(),pygame.image.load(os.path.join(Botoes, 'Upgrade2.png')).convert_alpha()]
     btns[Upgrade] = [pygame.transform.scale(btns[Upgrade][0], (80, 40)), pygame.transform.scale(btns[Upgrade][1], (80, 40))]
 
-
     return [assets, btns]
