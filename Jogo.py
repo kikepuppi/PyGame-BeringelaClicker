@@ -2,7 +2,7 @@
 
 import pygame
 import os 
-from config import largura, altura, fps, iniciando, quit, jogando, skins, instru, intro, fim, SomFundo
+from config import largura, altura, fps, iniciando, quit, jogando, skins, instru, intro, fim, SomFundo, Click
 from telainicial import telainicial
 from telajogo import telajogo
 from telaskins import telaskins
@@ -16,6 +16,7 @@ pygame.mixer.init()
 pygame.mixer.music.load(SomFundo)
 pygame.mixer.music.set_volume(0.4)
 pygame.mixer.music.play(-1)
+
 
 # ----- Gera tela principal
 tela = pygame.display.set_mode((largura, altura))

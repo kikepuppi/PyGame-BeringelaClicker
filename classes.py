@@ -1,5 +1,5 @@
 # Classes
-from config import largura, altura
+from config import largura, altura, Click
 import pygame
 
 class Button():
@@ -28,6 +28,9 @@ class Button():
 
 
         screen.blit(self.image, self.rect)  
+
+        if apertou:
+            pygame.mixer.Channel(1).play(pygame.mixer.Sound(Click))
 
         return apertou
     
@@ -75,5 +78,6 @@ class Berinjela(pygame.sprite.Sprite):
             soltou = True
         pygame.time.delay(50)
         screen.blit(self.image, self.rect)  
+
 
         return apertou

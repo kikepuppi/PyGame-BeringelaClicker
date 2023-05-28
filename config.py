@@ -12,6 +12,7 @@ Botoes = path.join(path.dirname(__file__), 'assets', 'img', 'Botoes')
 Beringuela = path.join(path.dirname(__file__), 'assets', 'img', 'Skins', 'beringuela')
 Zedamanga = path.join(path.dirname(__file__), 'assets', 'img', 'Skins', 'zedamanga')
 SomFundo = path.join(path.dirname(__file__), 'assets', 'wav', 'music_a.mp3')
+Click = path.join(path.dirname(__file__), 'assets', 'wav', 'Click.mp3')
 
 
 quit = 0
