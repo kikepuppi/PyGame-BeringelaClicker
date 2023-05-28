@@ -15,6 +15,7 @@ pygame.font.init()
 font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
 font2 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),9)
 font3 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),12)
+
 # ----- Inicia estruturas de dados
 def telajogo(screen):
     # Variável para o ajuste de velocidade
@@ -45,9 +46,11 @@ def telajogo(screen):
     clicks = goods['Clicks']
     acumulado = goods['Acumulado']
     acumuladoauto = goods['AcumuladoAuto']
+
     # Carrega o fundo da tela inicial
     fundo = assets[TelaJ]
     fundo_rect = fundo.get_rect()
+
     # Prepara os botoes.
     xe = (largura/2)-95
     xd = (largura/2)+xe
@@ -62,6 +65,9 @@ def telajogo(screen):
     now = 0
     ultimo = 0
     zerou = 0
+    mant = 0
+    magr = 0
+    mps = 0
 
     running = True
 
@@ -70,6 +76,9 @@ def telajogo(screen):
         now = pygame.time.get_ticks() - ultimo
         if now >= 1000:
             money += Auto
+            magr += Auto
+            mps = magr-mant
+            mant = magr
             now = 0
             ultimo = pygame.time.get_ticks()
             acumuladoauto += Auto
@@ -169,7 +178,7 @@ def telajogo(screen):
         textP6 = font3.render(('$500 M'), True, (255,255,255))
         textP6Rect = textP6.get_rect()
         textP6Rect.center = (440,675)
-        textseg = font.render(('{0:.2f}/s'.format(Auto)), True, (255,255,255))
+        textseg = font.render(('{0:.2f}/s'.format(mps)), True, (255,255,255))
         textsegRect = textseg.get_rect()
         textsegRect.center = (largura/2-15,363)
 
@@ -222,6 +231,7 @@ def telajogo(screen):
             if beri:
                 money += soma
                 acumulado += soma
+                magr += soma
                 clicks += 1
                 
             if butskins:
@@ -237,7 +247,7 @@ def telajogo(screen):
             if up2 and money >= preco2 and Up2 < 100:
                 Up2 += 1
                 money = int(money-preco2)
-                Auto += 1
+                Auto += 10
                 money += Auto
 
 
@@ -250,7 +260,7 @@ def telajogo(screen):
             if up4 and money>= preco4 and Up4 < 100:
                 Up4 += 1
                 money = int(money-preco4)
-                Auto += 100
+                Auto += 500
 
 
             if up5 and money >= preco5 and Up5 < 15:
