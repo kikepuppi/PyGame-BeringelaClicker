@@ -35,13 +35,14 @@ def listamissoes(Up1,Up2,Up4,Up5,clicks,auto,acumulado):
     10:['Tenha 10 Fazendeiros:', Up2, 10],
     11:['Clique na berinjela 1.250 vezes:', clicks, 1250],
     12:['Gere 100.000 berinjelas:', acumulado, 1000],
-    13:['Compre 1 Plantação Robotizada:', Up4, 1],
+    13:['Compre 1 Planta Robotizada:', Up4, 1],
     14:['Gere automaticamente 50.000 berinjelas:', auto, 50000],
     15:['Tenha 22 Clicks:', clicks, 22],
     16:['Clique na berinjela 1.500 vezes:', clicks, 1500],
     17:['Tenha 3 Super Clicks:', Up5, 3],
     18:['Tenha 40 Fazendeiros:', Up2, 40],
     19:['Gere automaticamente 150.000 berinjelas:', auto, 150000],
-    20:['Tenha 10 Super Clicks:', Up5, 10]
+    20:['Tenha 10 Super Clicks:', Up5, 10],
+    21:['Acabou', 0,0]
     }
     return missoes

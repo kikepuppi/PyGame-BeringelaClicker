@@ -95,6 +95,7 @@ def telaskins(screen):
     i = goods['Missao']
     clicks = goods['Clicks']
     acumulado = goods['Acumulado']
+    acumuladoauto = goods['AcumuladoAuto']
 
     #botaoC1 = Button(((largura/2)+35),((altura/3)-40), btns[Comprar])
     botaoC2 = Button(((largura/2)+35),((altura/3)+160), btns[Comprar])
@@ -218,7 +219,7 @@ def telaskins(screen):
     with open('skin.json', 'w') as arquivo_json:
         arquivo_json.write(novo_skins)
 
-    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks, 'Acumulado': acumulado}
+    save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks, 'Acumulado': acumulado, 'AcumuladoAuto': acumuladoauto}
 
     # Transformando de volta para JSON (texto)
     novo_save = json.dumps(save)

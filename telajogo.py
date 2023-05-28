@@ -86,7 +86,7 @@ def telajogo(screen):
         check = missao_atual[1]
         complete = missao_atual[2]
 
-        if check >= complete:
+        if check >= complete and i <= 20:
             i += 1
             dima += 1000
         
@@ -94,7 +94,7 @@ def telajogo(screen):
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
 
-        textmoney = font.render(str(money), True, (255,255,255))
+        textmoney = font.render(('{0:.2f}'.format(money)), True, (255,255,255))
         textmoneyRect = textmoney.get_rect()
         textmoneyRect.x = 60
         textmoneyRect.y = 20
@@ -105,7 +105,7 @@ def telajogo(screen):
         textnomemissao = font2.render(nome_missao, True, (255,255,255))
         textnomemissaoRect = textnomemissao.get_rect()
         textnomemissaoRect.center = (430,80)
-        textqnt = font2.render(('{0}/{1}'.format(check, complete)), True, (255,255,255))
+        textqnt = font2.render(('{0:.0f}/{1}'.format(check, complete)), True, (255,255,255))
         textqntRect = textqnt.get_rect()
         textqntRect.center = (430,100)
         textUP1 = font2.render(('{0}/{1}'.format(Up1, 40)), True, (255,255,255))
@@ -168,9 +168,9 @@ def telajogo(screen):
         textP6 = font3.render(('$500 M'), True, (255,255,255))
         textP6Rect = textP6.get_rect()
         textP6Rect.center = (440,675)
-        textseg = font.render(('{0}  /s'.format(Auto)), True, (255,255,255))
+        textseg = font.render(('{0:.2f}/s'.format(Auto)), True, (255,255,255))
         textsegRect = textseg.get_rect()
-        textsegRect.center = (largura/2+5,363)
+        textsegRect.center = (largura/2-15,363)
 
 
         screen.blit(textmoney,textmoneyRect)
@@ -190,7 +190,7 @@ def telajogo(screen):
         screen.blit(textUP6,textUP6Rect)
         screen.blit(textP6,textP6Rect)
         screen.blit(textseg,textsegRect)
-        screen.blit(moneyfoto, moneyfotoRect)
+        #screen.blit(moneyfoto, moneyfotoRect)
 
         # Desenha botoes de Upgrade.
         up1 = botaoup1.aparecer(screen, btns[Upgrade])
@@ -227,49 +227,41 @@ def telajogo(screen):
                 state = skins
                 running = False
             
-            if up1 and money >= preco1:
+            if up1 and money >= preco1 and Up1 < 40:
                 Up1 += 1
                 money = int(money-preco1)
                 soma += 1
-                if Up1 > 40:
-                    Up1 -= 1
 
-            if up2 and money >= preco2:
+
+            if up2 and money >= preco2 and Up2 < 100:
                 Up2 += 1
                 money = int(money-preco2)
                 Auto += 1
                 money += Auto
-                if Up2 > 100:
-                    Up2 -= 1
 
-            if up3 and money >= preco3:
+
+            if up3 and money >= preco3 and Up3 < 4:
                 Up3 += 1
                 money = int(money-preco3)
-                money *= 0.5
-                if Up3 > 4:
-                    Up3 -= 1
+                soma *= 1.05
+                Auto *= 1.05
 
-            if up4 and money>= preco4:
+            if up4 and money>= preco4 and Up4 < 100:
                 Up4 += 1
                 money = int(money-preco4)
                 Auto += 100
-                money += Auto
-                if Up4> 100:
-                    Up4 -= 1
 
-            if up5 and money >= preco5:
+
+            if up5 and money >= preco5 and Up5 < 15:
                 Up5 += 1
                 money = int(money-preco5)
                 soma += 10
-                if Up5 >15:
-                    Up5 -= 1
 
-            if up6 and money >= preco6:
+
+            if up6 and money >= preco6 and Up6 < 1:
                 Up6+=1
                 money = int(money-preco6)
-                #não sei oq faz (mudar a tela talvez?)
-                if Up6 > 1:
-                    Up6 -= 1 #(acho q isso não vai precisar se a funcionalidade for oq parece 
+
       
 
         # Depois de desenhar tudo, inverte o display.
