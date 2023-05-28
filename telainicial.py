@@ -1,6 +1,6 @@
 # Tela Inicial
 
-from config import largura, altura, fps, quit, jogando, Roxo, instru
+from config import largura, altura, fps, quit, jogando, Roxo, instru, intro
 from assets import TelaI, load_assets, Beri, Voltar, Interrogacao, NewGame, LoadGame
 from os import path
 import pygame
@@ -64,7 +64,7 @@ def telainicial(screen):
                 running = False
             
             if new:
-                state = jogando
+                state = intro
                 running = False
             # Transformando de volta para JSON (texto)
                 save = {'Dinheiro': 0, "Soma": 1,"Gemas": 0, 'Up1': 0, 'Up2': 0, 'Up3': 0, 'Up4': 0, 'Up5': 0, 'Up6': 0, 'Auto': 0, 'Missao':1, 'Clicks': 0, 'Acumulado': 0, 'AcumuladoAuto': 0}
