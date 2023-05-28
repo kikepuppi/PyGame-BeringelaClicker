@@ -266,7 +266,7 @@ def telajogo(screen):
             if up5 and money >= preco5 and Up5 < 15:
                 Up5 += 1
                 money = int(money-preco5)
-                soma += 10
+                soma += 100
 
 
             if up6 and money >= preco6 and Up6 < 1:
