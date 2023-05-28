@@ -1,6 +1,6 @@
 # Tela Jogando
 
-from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes, Imagens
+from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes, Imagens, fim
 from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela
@@ -61,6 +61,7 @@ def telajogo(screen):
     botaoskins = Button(10,65,btns[BSkins])
     now = 0
     ultimo = 0
+    zerou = 0
 
     running = True
 
@@ -261,6 +262,12 @@ def telajogo(screen):
             if up6 and money >= preco6 and Up6 < 1:
                 Up6+=1
                 money = int(money-preco6)
+                zerou = 1
+
+            if zerou > 0:
+                state = fim
+                zerou = 0
+                running = False
 
       
 

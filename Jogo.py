@@ -8,6 +8,7 @@ from telajogo import telajogo
 from telaskins import telaskins
 from telacomojogar import telacomojogar
 from telaintro import telaintro
+from telafim import telafim
 
 pygame.init()
 pygame.mixer.init()
@@ -28,6 +29,8 @@ while state != quit:
         state = telacomojogar(tela)
     elif state == intro:
         state = telaintro(tela)
+    elif state == fim:
+        state = telafim(tela)
     else:
         state = quit
 
