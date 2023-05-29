@@ -1,15 +1,17 @@
 # Tela de instruções 
 
+# Imports
 from config import largura, altura, fps, quit, jogando, Roxo, skins, instru, iniciando
 from assets import TelaI, TelaJ, TelaS, TelaC, load_assets, Voltar
 from classes import Button, Berinjela
 from os import path
 import pygame
 
+# Gera a tela
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berigela Clicker')
 
-
+# Carrega os assets
 assets = load_assets()[0]
 btns = load_assets()[1]
 
@@ -45,6 +47,7 @@ def telacomojogar(screen):
             if event.type == pygame.QUIT:
                 state = quit
                 running = False
+            # Verifica se clicou para voltar
             if v:
                 state = iniciando
                 running = False
@@ -54,6 +57,3 @@ def telacomojogar(screen):
 
 
     return state
-
-
-
