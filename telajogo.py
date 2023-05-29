@@ -226,57 +226,58 @@ def telajogo(screen):
                 running = False
             if event.type == pygame.KEYDOWN:
                 keysdown[event.key] = True
-                
-            if event.type == pygame.KEYUP and keysdown[event.key]:
-                if event.key == pygame.K_RIGHT:
-                    state = skins
-                    running = False
+
+            # Verifica se a berinjela foi clicada
             if beri and event.type == pygame.MOUSEBUTTONUP:
                 money += soma
                 acumulado += soma
                 magr += soma
                 clicks += 1
-                
-            if butskins:
+            
+            # Verifica se o botao Skins foi apertado
+            if butskins and event.type == pygame.MOUSEBUTTONUP:
                 state = skins
                 running = False
             
-            if up1 and money >= preco1 and Up1 < 40:
+            # Verifica se o botao Upgrade 1 foi apertado
+            if up1 and money >= preco1 and Up1 < 40 and event.type == pygame.MOUSEBUTTONUP:
                 Up1 += 1
                 money = int(money-preco1)
                 soma += 1
 
-
-            if up2 and money >= preco2 and Up2 < 100:
+            # Verifica se o botao Upgrade 2 foi apertado
+            if up2 and money >= preco2 and Up2 < 100 and event.type == pygame.MOUSEBUTTONUP:
                 Up2 += 1
                 money = int(money-preco2)
                 Auto += 10
                 money += Auto
 
-
-            if up3 and money >= preco3 and Up3 < 4:
+            # Verifica se o botao Upgrade 3 foi apertado
+            if up3 and money >= preco3 and Up3 < 4 and event.type == pygame.MOUSEBUTTONUP:
                 Up3 += 1
                 money = int(money-preco3)
                 soma *= 1.05
                 Auto *= 1.05
 
-            if up4 and money>= preco4 and Up4 < 100:
+            # Verifica se o botao Upgrade 4 foi apertado
+            if up4 and money>= preco4 and Up4 < 100 and event.type == pygame.MOUSEBUTTONUP:
                 Up4 += 1
                 money = int(money-preco4)
                 Auto += 500
 
-
-            if up5 and money >= preco5 and Up5 < 15:
+            # Verifica se o botao Upgrade 5 foi apertado
+            if up5 and money >= preco5 and Up5 < 15 and event.type == pygame.MOUSEBUTTONUP:
                 Up5 += 1
                 money = int(money-preco5)
                 soma += 100
 
-
-            if up6 and money >= preco6 and Up6 < 1:
+            # Verifica se o botao Upgrade 6 foi apertado
+            if up6 and money >= preco6 and Up6 < 1 and event.type == pygame.MOUSEBUTTONUP:
                 Up6+=1
                 money = int(money-preco6)
                 zerou = 1
 
+            # Verifica se zerou o jogo
             if zerou > 0:
                 state = fim
                 zerou = 0
