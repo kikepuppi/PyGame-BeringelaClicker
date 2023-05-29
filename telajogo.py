@@ -256,8 +256,8 @@ def telajogo(screen):
             if up3 and money >= preco3 and Up3 < 4 and event.type == pygame.MOUSEBUTTONUP:
                 Up3 += 1
                 money = int(money-preco3)
-                soma *= 1.05
-                Auto *= 1.05
+                soma *= 1.15
+                Auto *= 1.15
 
             # Verifica se o botao Upgrade 4 foi apertado
             if up4 and money>= preco4 and Up4 < 100 and event.type == pygame.MOUSEBUTTONUP:
@@ -276,6 +276,7 @@ def telajogo(screen):
                 Up6+=1
                 money = int(money-preco6)
                 zerou = 1
+                Auto += 1000000
 
             # Verifica se zerou o jogo
             if zerou > 0:
