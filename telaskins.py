@@ -1,5 +1,6 @@
 # Tela das Skins de berinjela
 
+# Importa e Inicia pacotes
 from config import largura, altura, fps, quit, jogando, Roxo, skins, Fontes, Imagens, Beringuela, Zedamanga
 from assets import TelaI, TelaJ, TelaS, Selecionado, Selecionar, Comprar, Voltar, load_assets
 from os import path
@@ -7,10 +8,11 @@ from classes import Button
 import pygame
 import json
 
-
+# Gera tela das Skins
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berijela Clicker')
 
+# Inicializa e cria a fonte
 pygame.font.init()
 font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
 
@@ -23,10 +25,12 @@ def telaskins(screen):
     # Variável para o ajuste de velocidade
     clock = pygame.time.Clock()
 
+    # Lê o que está inserido no arquivo save.json (goods)
     with open('save.json', 'r') as arquivo_json:
         texto = arquivo_json.read()
     goods = json.loads(texto)
 
+    # Gera desenho das Skins e o Texto de seus nomes
     beri1 = pygame.image.load(path.join(Imagens, 'beri.png')).convert_alpha()
     beri1 = pygame.transform.scale(beri1, (190, 190))
     beri1Rect = beri1.get_rect()
@@ -58,10 +62,11 @@ def telaskins(screen):
     textmangarect = textmanga.get_rect()
     textmangarect.center = (((largura/2)-50), (altura/3)+ 380)
 
-    
+    # Lê o que está inserido no arquivo save.json (skins)
     with open('skin.json', 'r') as arquivo_json:
         texto1 = arquivo_json.read()
     
+    # Transforma string em dicionário
     skinsdic = json.loads(texto1)
     goods = json.loads(texto)
 
@@ -79,6 +84,7 @@ def telaskins(screen):
     Jacomprou2 = skinsdic['Jacomprou2']
     Jacomprou3 = skinsdic['Jacomprou3']
 
+    # Lê o que está inserido no arquivo save.json
     with open('save.json', 'r') as arquivo_json:
         texto = arquivo_json.read()
     goods = json.loads(texto)
@@ -97,7 +103,7 @@ def telaskins(screen):
     acumulado = goods['Acumulado']
     acumuladoauto = goods['AcumuladoAuto']
 
-    #botaoC1 = Button(((largura/2)+35),((altura/3)-40), btns[Comprar])
+    # Cria os Botões (Comprar, Selecionar e Selecionado)
     botaoC2 = Button(((largura/2)+35),((altura/3)+160), btns[Comprar])
     botaoC3 = Button(((largura/2)+35),((altura/3)+370), btns[Comprar])
 
@@ -122,6 +128,7 @@ def telaskins(screen):
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
 
+        # Desenha textos, skins e nome das skins
         textdima = font.render(str(dima), True, (255,255,255))
         textdimaRect = textdima.get_rect()
         textdimaRect.x = 465
@@ -136,10 +143,10 @@ def telaskins(screen):
         screen.blit(textmanga, textmangarect)
 
 
-        # desenha botoes
-
+        # Desenha botoes
         v = botaov.aparecer(screen, btns[Voltar])
 
+        # Condição para caso haja skin que tenha sido comprada e selecionada e o jogador compre e selecione outra, a skin antes selecionada passa a ter a opção de selecionar e a que estava antes para selecionar agora está selecionada
         if Comprado2 == False:
             b2 = botaoC2.aparecer(screen, btns[Comprar])
         if Comprado3 == False:
@@ -219,6 +226,7 @@ def telaskins(screen):
     with open('skin.json', 'w') as arquivo_json:
         arquivo_json.write(novo_skins)
 
+    # Define dicionário
     save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks, 'Acumulado': acumulado, 'AcumuladoAuto': acumuladoauto}
 
     # Transformando de volta para JSON (texto)
