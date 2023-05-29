@@ -99,6 +99,9 @@ def telajogo(screen):
         if check >= complete and i <= 20:
             i += 1
             dima += 1000
+            clicks = 0
+            acumulado = 0
+            acumuladoauto = 0
         
         # A cada loop, redesenha o fundo e os sprites
         screen.fill(Roxo)
@@ -228,7 +231,7 @@ def telajogo(screen):
                 if event.key == pygame.K_RIGHT:
                     state = skins
                     running = False
-            if beri:
+            if beri and event.type == pygame.MOUSEBUTTONUP:
                 money += soma
                 acumulado += soma
                 magr += soma
