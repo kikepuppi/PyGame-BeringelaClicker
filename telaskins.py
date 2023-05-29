@@ -183,28 +183,28 @@ def telaskins(screen):
                 state = quit
                 running = False
 
-            if v:
+            if v and event.type == pygame.MOUSEBUTTONUP:
                 state = jogando
                 running = False
 
-            if b2 and Jacomprou2 == False and dima >= 5000:
+            if b2 and Jacomprou2 == False and dima >= 5000 and event.type == pygame.MOUSEBUTTONUP:
                 Comprado2 = True
                 Selecionar2 = 1
                 dima -= 5000
-            if b3 and Jacomprou3 == False and dima >= 15000:
+            if b3 and Jacomprou3 == False and dima >= 15000 and event.type == pygame.MOUSEBUTTONUP:
                 Comprado3 = True
                 Selecionar3 = 1
                 dima -= 15000
-            if b1 and Jacomprou1 == True:
+            if b1 and Jacomprou1 == True and event.type == pygame.MOUSEBUTTONUP:
                 Selecionado1 = 1
                 Selecionado2 = 0
                 Selecionado3 = 0
-            if b2 and Jacomprou2 == True:
+            if b2 and Jacomprou2 == True and event.type == pygame.MOUSEBUTTONUP:
                 Comprado2 = True
                 Selecionado1 = 0
                 Selecionado2 = 1
                 Selecionado3 = 0
-            if b3 and Jacomprou3 == True:
+            if b3 and Jacomprou3 == True and event.type == pygame.MOUSEBUTTONUP:
                 Comprado3 = True
                 Selecionar1 = 1
                 Selecionado1 = 0
