@@ -6,6 +6,8 @@ from config import largura, altura, Imagens, Botoes, Beringuela, Zedamanga
 import json
 
 
+# Cria as keys do dicionario
+
 TelaI = 'Tela Inicial'
 TelaJ = 'Tela Jogo'
 TelaS = 'Tela Skins'
@@ -24,10 +26,12 @@ TelaIntro = 'Tela de Introdução'
 TelaF = 'Tela de Fim'
 
 def load_assets():
-
+    # le o arquivo de saves para obter infos
     with open('skin.json', 'r') as arquivo_json:
         texto = arquivo_json.read()
     skins = json.loads(texto)
+
+    # Pega qual skin ta selecionada
     sel1 = skins['Selecionado1']
     sel2 = skins['Selecionado2']
     sel3 = skins['Selecionado3']
@@ -48,6 +52,8 @@ def load_assets():
     assets[TelaIntro] = pygame.transform.scale(assets[TelaIntro], (largura, altura))
     assets[TelaF] = pygame.image.load(os.path.join(Imagens, 'End.png')).convert()
     assets[TelaF] = pygame.transform.scale(assets[TelaF], (largura, altura))
+
+    # Adicionar qual skin tiver selecionada
     if sel1 == 1:
         assets[Beri] = [pygame.image.load(os.path.join(Imagens, 'beri.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_lado.png')).convert_alpha(),pygame.image.load(os.path.join(Imagens, 'beri_parada.png')).convert_alpha()]
         assets[Beri] = [pygame.transform.scale(assets[Beri][0], (200, 200)),pygame.transform.scale(assets[Beri][1], (200, 200)),pygame.transform.scale(assets[Beri][2], (200, 200))]
