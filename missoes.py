@@ -1,4 +1,6 @@
 # Arquivo para as missoes
+
+# Importa bibliotecas e arquivos
 from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes
 from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
@@ -6,8 +8,11 @@ from classes import Button, Berinjela
 import pygame
 import json
 
+# Lê o save ja existente
 with open('save.json', 'r') as arquivo_json:
         texto = arquivo_json.read()
+
+# Cria o dicionario e le as variaveis
 goods = json.loads(texto)
 money = goods['Dinheiro']
 dima = goods['Gemas']
@@ -21,6 +26,7 @@ clicks = goods['Clicks']
 auto = goods['AcumuladoAuto']
 acumulado = goods['Acumulado']
 
+# Cria o dicionario de missões com o numero, o nome, o que eu quero checar e a quantidade
 def listamissoes(Up1,Up2,Up4,Up5,clicks,auto,acumulado):
     missoes = {
     1:['Clique na Berinjela 100 vezes:', clicks, 100],

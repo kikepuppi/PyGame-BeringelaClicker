@@ -75,14 +75,15 @@ def telajogo(screen):
     while running:
         now = pygame.time.get_ticks() - ultimo
         if now >= 1000:
-            money += Auto
-            magr += Auto
+            money += int(Auto)
+            magr += int(Auto)
             mps = magr-mant
             mant = magr
             now = 0
             ultimo = pygame.time.get_ticks()
-            acumuladoauto += Auto
+            acumuladoauto += int(Auto)
 
+        # Define o preco dos upgrades
         preco1 = int(10*(1.5**(Up1)))
         preco2 = int(1000*(1.1**(Up2)))
         preco3 = int(10000*(5.5**(Up3)))
@@ -90,12 +91,14 @@ def telajogo(screen):
         preco5 = int(100000*(1.5**(Up5)))
         preco6 = int(500000000)
 
+        # Importa a lista de missoes e determina a atual
         missoes = listamissoes(Up1,Up2,Up4,Up5,clicks,acumuladoauto,acumulado)
         missao_atual = missoes[i]
         nome_missao = missao_atual[0]
         check = missao_atual[1]
         complete = missao_atual[2]
 
+        # Missao completa
         if check >= complete and i <= 20:
             i += 1
             dima += 1000
@@ -107,6 +110,7 @@ def telajogo(screen):
         screen.fill(Roxo)
         screen.blit(fundo, fundo_rect)
 
+        # Escreve textos (Dineiro, mossoes, upgrades)
         textmoney = font.render(('{0:.2f}'.format(money)), True, (255,255,255))
         textmoneyRect = textmoney.get_rect()
         textmoneyRect.x = 60
@@ -185,7 +189,7 @@ def telajogo(screen):
         textsegRect = textseg.get_rect()
         textsegRect.center = (largura/2-15,363)
 
-
+        # Coloca textos na tela
         screen.blit(textmoney,textmoneyRect)
         screen.blit(textdima,textdimaRect)
         screen.blit(textnomemissao,textnomemissaoRect)
@@ -203,7 +207,6 @@ def telajogo(screen):
         screen.blit(textUP6,textUP6Rect)
         screen.blit(textP6,textP6Rect)
         screen.blit(textseg,textsegRect)
-        #screen.blit(moneyfoto, moneyfotoRect)
 
         # Desenha botoes de Upgrade.
         up1 = botaoup1.aparecer(screen, btns[Upgrade])
@@ -229,9 +232,9 @@ def telajogo(screen):
 
             # Verifica se a berinjela foi clicada
             if beri and event.type == pygame.MOUSEBUTTONUP:
-                money += soma
-                acumulado += soma
-                magr += soma
+                money += int(soma)
+                acumulado += int(soma)
+                magr += int(soma)
                 clicks += 1
             
             # Verifica se o botao Skins foi apertado
