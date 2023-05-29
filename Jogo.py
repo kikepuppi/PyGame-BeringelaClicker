@@ -1,5 +1,6 @@
 # O JOGO
 
+# Importar bibliotecas e arquivos
 import pygame
 import os 
 from config import largura, altura, fps, iniciando, quit, jogando, skins, instru, intro, fim, SomFundo, Click
@@ -10,9 +11,11 @@ from telacomojogar import telacomojogar
 from telaintro import telaintro
 from telafim import telafim
 
+# Inicializa o pygame e o mixer
 pygame.init()
 pygame.mixer.init()
 
+# load e play do som de fundo
 pygame.mixer.music.load(SomFundo)
 pygame.mixer.music.set_volume(0.05)
 pygame.mixer.music.play(-1)
@@ -22,6 +25,7 @@ pygame.mixer.music.play(-1)
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berinjela Clicker')
 
+# Condições de mudança de tela
 state = iniciando
 while state != quit:
     if state == iniciando:
@@ -39,4 +43,5 @@ while state != quit:
     else:
         state = quit
 
+# Desliga o pygame
 pygame.quit()
