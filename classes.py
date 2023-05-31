@@ -27,7 +27,8 @@ class Button():
 
             if pygame.mouse.get_pressed()[0] == True:
                 apertou = True # Apertou o botão
-                pygame.mixer.Channel(1).play(pygame.mixer.Sound(Click)) # Toca o som do botão
+                pygame.mixer.Channel(1).play(pygame.mixer.Sound(Click))  # Toca o som do botão
+                pygame.mixer.Channel(1).set_volume(0.5)
 
 
         if self.rect.collidepoint(pos) == False:

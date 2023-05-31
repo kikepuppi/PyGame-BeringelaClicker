@@ -5,7 +5,7 @@ Jogo: Berinjela Clicker
 
 Criadores: Enzo Ristori, Hennrique Puppi, Sidney Oliveira
 
-O jogo deve ser rodado no arquivo 'Jogo.py' e apenas este precisa ser aberto para que o jogo funcione
+O jogo deve ser rodado no arquivo 'BerinjelaClicker.py' e apenas este precisa ser aberto para que o jogo funcione
 
 O jogo reiniciará toda vez que clickar no botão 'New Game', porém se quiser continuar o progresso anterior o botão 'Load Game' serve para isso
 
