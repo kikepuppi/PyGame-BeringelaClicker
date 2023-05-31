@@ -17,7 +17,7 @@ pygame.mixer.init()
 
 # load e play do som de fundo
 pygame.mixer.music.load(SomFundo)
-pygame.mixer.music.set_volume(0.05)
+pygame.mixer.music.set_volume(0.1)
 pygame.mixer.music.play(-1)
 
 
