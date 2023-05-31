@@ -14,4 +14,4 @@ O jogo reiniciará toda vez que clickar no botão 'New Game', porém se quiser c
 # Para isso, abra o seu terminal (Linux ou MacOS) ou Anaconda Prompt (Windows) e digite:
 # "pip install pygame"
 
-Segue link para um vídeo mostrando o jogo funcionando:
+Segue link para um vídeo mostrando o jogo funcionando: https://youtu.be/gaHF5bncJI4
