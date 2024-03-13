@@ -3,7 +3,6 @@
 # Imports
 from config import largura, altura, fps, quit, jogando, Roxo, skins, instru, iniciando, intro, fim
 from assets import TelaI, TelaJ, TelaS, TelaC, TelaIntro, TelaF, load_assets, Voltar
-from classes import Button, Berinjela
 from os import path
 import pygame
 

@@ -60,7 +60,7 @@ def telajogo(screen):
     botaoup4 = Button(xd,434,btns[Upgrade])
     botaoup5 = Button(xd,540,btns[Upgrade])
     botaoup6 = Button(xd,646,btns[Upgrade])
-    botaoberi = Berinjela(assets[Beri], (200,200))
+    botaoberi = Berinjela((200,200), largura/2-100, altura/2-200, assets[Beri])
     botaoskins = Button(10,65,btns[BSkins])
     now = 0
     ultimo = 0
@@ -111,81 +111,39 @@ def telajogo(screen):
         screen.blit(fundo, fundo_rect)
 
         # Escreve textos (Dineiro, mossoes, upgrades)
-        textmoney = font.render(('{0:.2f}'.format(money)), True, (255,255,255))
+        branco = (255,255,255)
+        textmoney = font.render(('{0:.2f}'.format(money)), True, branco)
         textmoneyRect = textmoney.get_rect()
         textmoneyRect.x = 60
         textmoneyRect.y = 20
-        textdima = font.render(str(dima), True, (255,255,255))
+        textdima = font.render(str(dima), True, branco)
         textdimaRect = textdima.get_rect()
         textdimaRect.x = 465
         textdimaRect.y = 20
-        textnomemissao = font2.render(nome_missao, True, (255,255,255))
+        textnomemissao = font2.render(nome_missao, True, branco)
         textnomemissaoRect = textnomemissao.get_rect()
         textnomemissaoRect.center = (430,80)
-        textqnt = font2.render(('{0:.0f}/{1}'.format(check, complete)), True, (255,255,255))
+        textqnt = font2.render(('{0:.0f}/{1}'.format(check, complete)), True, branco)
         textqntRect = textqnt.get_rect()
         textqntRect.center = (430,100)
-        textUP1 = font2.render(('{0}/{1}'.format(Up1, 40)), True, (255,255,255))
-        textUP1Rect = textUP1.get_rect()
-        textUP1Rect.center = (150,445)
-        textP1 = font3.render(('${0:.1f}'.format(preco1)), True, (255,255,255))
-        if preco1 >= 1000:
-            textP1 = font3.render(('${0:.1f} mil'.format(preco1/1000)), True, (255,255,255))
-            if preco1 >= 1000000:
-                textP1 = font3.render(('${0:.1f} M'.format(preco1/1000000)), True, (255,255,255))
-        textP1Rect = textP1.get_rect()
-        textP1Rect.center = (150,465)
-        textUP2 = font2.render(('{0}/{1}'.format(Up2, 100)), True, (255,255,255))
-        textUP2Rect = textUP2.get_rect()
-        textUP2Rect.center = (150,550)
-        textP2 = font3.render(('${0:.1f}'.format(preco2)), True, (255,255,255))
-        if preco2 >= 1000:
-            textP2 = font3.render(('${0:.1f} mil'.format(preco2/1000)), True, (255,255,255))
-            if preco2 >= 1000000:
-                textP2 = font3.render(('${0:.1f} M'.format(preco2/1000000)), True, (255,255,255))
-        textP2Rect = textP2.get_rect()
-        textP2Rect.center = (150,570)
-        textUP3 = font2.render(('{0}/{1}'.format(Up3, 4)), True, (255,255,255))
-        textUP3Rect = textUP3.get_rect()
-        textUP3Rect.center = (150,655)
-        textP3 = font3.render(('${0:.1f}'.format(preco3)), True, (255,255,255))
-        if preco3 >= 1000:
-            textP3 = font3.render(('${0:.1f} mil'.format(preco3/1000)), True, (255,255,255))
-            if preco3 >= 1000000:
-                textP3 = font3.render(('${0:.1f} M'.format(preco3/1000000)), True, (255,255,255))
-        textP3Rect = textP3.get_rect()
-        textP3Rect.center = (150,675)
-        textUP4 = font2.render(('{0}/{1}'.format(Up4, 100)), True, (255,255,255))
-        textUP4Rect = textUP4.get_rect()
-        textUP4Rect.center = (440,445)
-        textP4 = font3.render(('${0:.1f}'.format(preco4)), True, (255,255,255))
-        if preco4 >= 1000:
-            textP4 = font3.render(('${0:.1f} mil'.format(preco4/1000)), True, (255,255,255))
-            if preco4 >= 1000000:
-                textP4 = font3.render(('${0:.1f} M'.format(preco4/1000000)), True, (255,255,255))
-                if preco4 >= 1000000000:
-                    textP4 = font3.render(('${0:.1f} B'.format(preco4/1000000000)), True, (255,255,255))
-        textP4Rect = textP4.get_rect()
-        textP4Rect.center = (440,465)
-        textUP5 = font2.render(('{0}/{1}'.format(Up5, 15)), True, (255,255,255))
-        textUP5Rect = textUP4.get_rect()
-        textUP5Rect.center = (440,550)
-        textP5 = font3.render(('${0:.1f}'.format(preco5)), True, (255,255,255))
-        if preco5 >= 1000:
-            textP5 = font3.render(('${0:.1f} mil'.format(preco5/1000)), True, (255,255,255))
-            if preco5 >= 1000000:
-                textP5 = font3.render(('${0:.1f} M'.format(preco5/1000000)), True, (255,255,255))
-                if preco5 >= 1000000000:
-                    textP5 = font3.render(('${0:.1f} B'.format(preco5/1000000000)), True, (255,255,255))
-        textP5Rect = textP5.get_rect()
-        textP5Rect.center = (440,570)
-        textUP6 = font2.render(('{0}/{1}'.format(Up6, 1)), True, (255,255,255))
+
+        textUP1, textUP1Rect, textP1, textP1Rect = formatoPreco1(Up1, preco1, branco, (150,465), 40)
+
+        textUP2, textUP2Rect, textP2, textP2Rect = formatoPreco1(Up2, preco2, branco, (150,570), 100)
+
+        textUP3, textUP3Rect, textP3, textP3Rect = formatoPreco1(Up3, preco3, branco, (150,675), 4)
+
+        textUP4, textUP4Rect, textP4, textP4Rect = formatoPreco2(Up4, preco4, branco, (440,465), 15)
+
+        textUP5, textUP5Rect, textP5, textP5Rect = formatoPreco2(Up5, preco5, branco, (440,570), 15)
+
+        textUP6 = font2.render(('{0}/{1}'.format(Up6, 1)), True, branco)
         textUP6Rect = textUP6.get_rect()
         textUP6Rect.center = (440,655)
-        textP6 = font3.render(('$500 M'), True, (255,255,255))
+        textP6 = font3.render(('$500 M'), True, branco)
         textP6Rect = textP6.get_rect()
         textP6Rect.center = (440,675)
-        textseg = font.render(('{0:.2f}/s'.format(mps)), True, (255,255,255))
+        textseg = font.render(('{0:.2f}/s'.format(mps)), True, branco)
         textsegRect = textseg.get_rect()
         textsegRect.center = (largura/2-15,363)
 
@@ -294,6 +252,39 @@ def telajogo(screen):
         pygame.display.update()
 
 
+    save(money, soma, dima, Up1, Up2, Up3, Up4, Up5, Up6, Auto, i, clicks, acumulado, acumuladoauto)
+
+    return state
+
+def formatoPreco2(Up4, preco4, branco, pos, size):
+    textUP4 = font2.render(('{0}/{1}'.format(Up4, size)), True, branco)
+    textUP4Rect = textUP4.get_rect()
+    textUP4Rect.center = (pos[0],pos[1]-20)
+    textP4 = font3.render(('${0:.1f}'.format(preco4)), True, branco)
+    if preco4 >= 1000:
+        textP4 = font3.render(('${0:.1f} mil'.format(preco4/1000)), True, branco)
+        if preco4 >= 1000000:
+            textP4 = font3.render(('${0:.1f} M'.format(preco4/1000000)), True, branco)
+            if preco4 >= 1000000000:
+                textP4 = font3.render(('${0:.1f} B'.format(preco4/1000000000)), True, branco)
+    textP4Rect = textP4.get_rect()
+    textP4Rect.center = pos
+    return textUP4,textUP4Rect,textP4,textP4Rect
+
+def formatoPreco1(Up, preco, branco, pos, size):
+    textUP = font2.render(('{0}/{1}'.format(Up, size)), True, branco)
+    textUPRect = textUP.get_rect()
+    textUPRect.center = (pos[0],pos[1]-20)
+    textP = font3.render(('${0:.1f}'.format(preco)), True, branco)
+    if preco >= 1000:
+        textP = font3.render(('${0:.1f} mil'.format(preco/1000)), True, branco)
+        if preco >= 1000000:
+            textP = font3.render(('${0:.1f} M'.format(preco/1000000)), True, branco)
+    textPRect = textP.get_rect()
+    textPRect.center = pos
+    return textUP,textUPRect,textP,textPRect
+
+def save(money, soma, dima, Up1, Up2, Up3, Up4, Up5, Up6, Auto, i, clicks, acumulado, acumuladoauto):
     save = {'Dinheiro':money, 'Soma':soma,'Gemas':dima, 'Up1': Up1, 'Up2': Up2, 'Up3': Up3, 'Up4': Up4, 'Up5': Up5, 'Up6': Up6, 'Auto': Auto, 'Missao': i, 'Clicks': clicks, 'Acumulado': acumulado, 'AcumuladoAuto': acumuladoauto}
 
     # Transformando de volta para JSON (texto)
@@ -303,4 +294,3 @@ def telajogo(screen):
     with open('save.json', 'w') as arquivo_json:
         arquivo_json.write(novo_save)
 
-    return state
