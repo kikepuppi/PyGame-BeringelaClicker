@@ -42,18 +42,18 @@ class Button():
 
 # Cria a classe berinjela
 
-class Berinjela(pygame.sprite.Sprite):
+class Berinjela(pygame.sprite.Sprite, Button):
 
     # Cria a Berinjela
-    def __init__(self, img, tam):
+    def __init__(self, tam, x, y, imagem):
         # Construtor da classe mãe (Sprite).
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = img[0] # imagem da sprite
+        Button.__init__(self, x, y, imagem)
+
         self.image = pygame.transform.scale(self.image, tam) # transform da imagem
-        self.rect = self.image.get_rect() # pega o retangulo da imagem
-        self.rect.centerx = largura/2 # centro da imagem x
-        self.rect.centery = (altura)/2-60# centro da imagem y
+        # self.rect.centerx = largura/2 # centro da imagem x
+        # self.rect.centery = (altura)/2-60# centro da imagem y
         self.i = 0 # variavel i
         self.last_update = 0 # pega a ultima vez que essa imagem apareceu
 

@@ -60,7 +60,7 @@ def telajogo(screen):
     botaoup4 = Button(xd,434,btns[Upgrade])
     botaoup5 = Button(xd,540,btns[Upgrade])
     botaoup6 = Button(xd,646,btns[Upgrade])
-    botaoberi = Berinjela(assets[Beri], (200,200))
+    botaoberi = Berinjela((200,200), largura/2-100, altura/2-200, assets[Beri])
     botaoskins = Button(10,65,btns[BSkins])
     now = 0
     ultimo = 0
