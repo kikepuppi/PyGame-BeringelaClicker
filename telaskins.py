@@ -1,7 +1,7 @@
 # Tela das Skins de berinjela
 
 # Importa e Inicia pacotes
-from config import largura, altura, fps, quit, jogando, Roxo, Branco, skins, Fontes, Imagens, Beringuela, Zedamanga
+from config import font, largura, altura, fps, quit, jogando, Roxo, Branco, skins, Fontes, Imagens, Beringuela, Zedamanga
 from assets import TelaI, TelaJ, TelaS, Selecionado, Selecionar, Comprar, Voltar, load_assets
 from os import path
 from classes import Button 
@@ -11,10 +11,6 @@ import json
 # Gera tela das Skins
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berijela Clicker')
-
-# Inicializa e cria a fonte
-pygame.font.init()
-font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
 
 
 # ----- Inicia estruturas de dados
