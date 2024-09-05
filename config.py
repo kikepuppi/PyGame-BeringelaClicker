@@ -55,3 +55,21 @@ def templateUpgrade(quantidade, max, pos, preco):
     textPRect.center = (pos[0], pos[1]+20)
 
     return textUP, textUPRect, textP, textPRect
+
+def templateSkin(arquivo, pos, nome):
+    beri = pygame.image.load(path.join(Imagens, arquivo)).convert_alpha()
+    beri = pygame.transform.scale(beri, (190, 190))
+    beriRect = beri.get_rect()
+    beriRect.center = pos[0]
+
+    text = font.render(nome[0], True, Branco)
+    textRect = text.get_rect()
+    textRect.center = pos[1]
+
+    if len(pos) == 3:
+        text2 = font.render(nome[1], True, Branco)
+        text2Rect = text2.get_rect()
+        text2Rect.center = pos[2]
+        return beri, beriRect, text, textRect, text2, text2Rect
+    else:
+        return beri, beriRect, text, textRect, None, None
