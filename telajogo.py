@@ -1,6 +1,6 @@
 # Tela Jogando
 
-from config import largura, altura, fps, quit, jogando, skins, Roxo, Branco, Fontes, Imagens, fim, SomFundo
+from config import templateUpgrade, font, font2, font3, largura, altura, fps, quit, jogando, skins, Roxo, Branco, Fontes, Imagens, fim, SomFundo
 from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela
@@ -10,11 +10,6 @@ from missoes import listamissoes
 
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption('Berijela Clicker')
-
-pygame.font.init()
-font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
-font2 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),9)
-font3 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),12)
 
 # ----- Inicia estruturas de dados
 def telajogo(screen):
@@ -141,23 +136,6 @@ def telajogo(screen):
         textqnt = font2.render(('{0:.0f}/{1}'.format(check, complete)), True, Branco)
         textqntRect = textqnt.get_rect()
         textqntRect.center = (430,100)
-
-        def templateUpgrade(quantidade, max, pos, preco):
-            textUP = font2.render(('{0}/{1}'.format(quantidade, max)), True, Branco)
-            textUPRect = textUP.get_rect()
-            textUPRect.center = (pos)
-            textP = font3.render(('${0:.1f}'.format(preco)), True, Branco)
-            if preco >= 1000:
-                textP = font3.render(('${0:.1f} mil'.format(preco/1000)), True, Branco)
-            elif preco >= 1000000:
-                textP = font3.render(('${0:.1f} M'.format(preco/1000000)), True, Branco)
-            elif preco >= 1000000000:
-                textP = font3.render(('${0:.1f} B'.format(preco/1000000000)), True, Branco)
-
-            textPRect = textP.get_rect()
-            textPRect.center = (pos[0], pos[1]+20)
-
-            return textUP, textUPRect, textP, textPRect
 
         textUP1, textUP1Rect, textP1, textP1Rect = templateUpgrade(Up1, max1, pos1, preco1)
 

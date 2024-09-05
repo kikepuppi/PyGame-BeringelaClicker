@@ -31,3 +31,27 @@ fim = 6
 
 Roxo = (99,46,98)
 Branco = (255,255,255)
+
+# Fontes
+pygame.font.init()
+font = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),22)
+font2 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),9)
+font3 = pygame.font.Font((path.join(Fontes, 'Valorax-lg25V.otf')),12)
+
+# Funcoes
+def templateUpgrade(quantidade, max, pos, preco):
+    textUP = font2.render(('{0}/{1}'.format(quantidade, max)), True, Branco)
+    textUPRect = textUP.get_rect()
+    textUPRect.center = (pos)
+    textP = font3.render(('${0:.1f}'.format(preco)), True, Branco)
+    if preco >= 1000:
+        textP = font3.render(('${0:.1f} mil'.format(preco/1000)), True, Branco)
+    elif preco >= 1000000:
+        textP = font3.render(('${0:.1f} M'.format(preco/1000000)), True, Branco)
+    elif preco >= 1000000000:
+        textP = font3.render(('${0:.1f} B'.format(preco/1000000000)), True, Branco)
+
+    textPRect = textP.get_rect()
+    textPRect.center = (pos[0], pos[1]+20)
+
+    return textUP, textUPRect, textP, textPRect
