@@ -30,4 +30,4 @@ fim = 6
 # Cores principais
 
 Roxo = (99,46,98)
-
+Branco = (255,255,255)

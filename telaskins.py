@@ -1,7 +1,7 @@
 # Tela das Skins de berinjela
 
 # Importa e Inicia pacotes
-from config import largura, altura, fps, quit, jogando, Roxo, skins, Fontes, Imagens, Beringuela, Zedamanga
+from config import largura, altura, fps, quit, jogando, Roxo, Branco, skins, Fontes, Imagens, Beringuela, Zedamanga
 from assets import TelaI, TelaJ, TelaS, Selecionado, Selecionar, Comprar, Voltar, load_assets
 from os import path
 from classes import Button 
@@ -36,7 +36,7 @@ def telaskins(screen):
     beri1Rect = beri1.get_rect()
     beri1Rect.center = (90,185)
 
-    textberi = font.render('BERI', True, (255,255,255))
+    textberi = font.render('BERI', True, Branco)
     textberiRect = textberi.get_rect()
     textberiRect.center = (((largura/2)-65), 185)
 
@@ -45,7 +45,7 @@ def telaskins(screen):
     beri2Rect = beri2.get_rect()
     beri2Rect.center = (90,((altura/3)+160))
 
-    textberinguela = font.render('BERINGUELA', True, (255,255,255))
+    textberinguela = font.render('BERINGUELA', True, Branco)
     textberinguelarect = textberinguela.get_rect()
     textberinguelarect.center = (((largura/2)-55), (altura/3)+160)
 
@@ -54,7 +54,7 @@ def telaskins(screen):
     beri3Rect = beri3.get_rect()
     beri3Rect.center = (90,((altura/3)+370))
 
-    textze = font.render('ZE', True, (255,255,255))
+    textze = font.render('ZE', True, Branco)
     textzerect = textze.get_rect()
     textzerect.center = (((largura/2)-50), (altura/3)+360)
 
@@ -129,7 +129,7 @@ def telaskins(screen):
         screen.blit(fundo, fundo_rect)
 
         # Desenha textos, skins e nome das skins
-        textdima = font.render(str(dima), True, (255,255,255))
+        textdima = font.render(str(dima), True, Branco)
         textdimaRect = textdima.get_rect()
         textdimaRect.x = 465
         textdimaRect.y = 20
