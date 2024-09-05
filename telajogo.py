@@ -91,6 +91,22 @@ def telajogo(screen):
         preco5 = int(100000*(1.5**(Up5)))
         preco6 = int(500000000)
 
+        # Define a posicao dos upgrades
+        pos1 = [150,445]
+        pos2 = [150,550]
+        pos3 = [150,655]
+        pos4 = [440,445]
+        pos5 = [440,550]
+        pos6 = [440,655]
+
+        # Define a quantidade maxima dos upgrandes
+        max1 = 40
+        max2 = 100
+        max3 = 4
+        max4 = 100
+        max5 = 15
+        max6 = 1
+
         # Importa a lista de missoes e determina a atual
         missoes = listamissoes(Up1,Up2,Up4,Up5,clicks,acumuladoauto,acumulado)
         missao_atual = missoes[i]
@@ -125,66 +141,36 @@ def telajogo(screen):
         textqnt = font2.render(('{0:.0f}/{1}'.format(check, complete)), True, Branco)
         textqntRect = textqnt.get_rect()
         textqntRect.center = (430,100)
-        textUP1 = font2.render(('{0}/{1}'.format(Up1, 40)), True, Branco)
-        textUP1Rect = textUP1.get_rect()
-        textUP1Rect.center = (150,445)
-        textP1 = font3.render(('${0:.1f}'.format(preco1)), True, Branco)
-        if preco1 >= 1000:
-            textP1 = font3.render(('${0:.1f} mil'.format(preco1/1000)), True, Branco)
-            if preco1 >= 1000000:
-                textP1 = font3.render(('${0:.1f} M'.format(preco1/1000000)), True, Branco)
-        textP1Rect = textP1.get_rect()
-        textP1Rect.center = (150,465)
-        textUP2 = font2.render(('{0}/{1}'.format(Up2, 100)), True, Branco)
-        textUP2Rect = textUP2.get_rect()
-        textUP2Rect.center = (150,550)
-        textP2 = font3.render(('${0:.1f}'.format(preco2)), True, Branco)
-        if preco2 >= 1000:
-            textP2 = font3.render(('${0:.1f} mil'.format(preco2/1000)), True, Branco)
-            if preco2 >= 1000000:
-                textP2 = font3.render(('${0:.1f} M'.format(preco2/1000000)), True, Branco)
-        textP2Rect = textP2.get_rect()
-        textP2Rect.center = (150,570)
-        textUP3 = font2.render(('{0}/{1}'.format(Up3, 4)), True, Branco)
-        textUP3Rect = textUP3.get_rect()
-        textUP3Rect.center = (150,655)
-        textP3 = font3.render(('${0:.1f}'.format(preco3)), True, Branco)
-        if preco3 >= 1000:
-            textP3 = font3.render(('${0:.1f} mil'.format(preco3/1000)), True, Branco)
-            if preco3 >= 1000000:
-                textP3 = font3.render(('${0:.1f} M'.format(preco3/1000000)), True, Branco)
-        textP3Rect = textP3.get_rect()
-        textP3Rect.center = (150,675)
-        textUP4 = font2.render(('{0}/{1}'.format(Up4, 100)), True, Branco)
-        textUP4Rect = textUP4.get_rect()
-        textUP4Rect.center = (440,445)
-        textP4 = font3.render(('${0:.1f}'.format(preco4)), True, Branco)
-        if preco4 >= 1000:
-            textP4 = font3.render(('${0:.1f} mil'.format(preco4/1000)), True, Branco)
-            if preco4 >= 1000000:
-                textP4 = font3.render(('${0:.1f} M'.format(preco4/1000000)), True, Branco)
-                if preco4 >= 1000000000:
-                    textP4 = font3.render(('${0:.1f} B'.format(preco4/1000000000)), True, Branco)
-        textP4Rect = textP4.get_rect()
-        textP4Rect.center = (440,465)
-        textUP5 = font2.render(('{0}/{1}'.format(Up5, 15)), True, Branco)
-        textUP5Rect = textUP4.get_rect()
-        textUP5Rect.center = (440,550)
-        textP5 = font3.render(('${0:.1f}'.format(preco5)), True, Branco)
-        if preco5 >= 1000:
-            textP5 = font3.render(('${0:.1f} mil'.format(preco5/1000)), True, Branco)
-            if preco5 >= 1000000:
-                textP5 = font3.render(('${0:.1f} M'.format(preco5/1000000)), True, Branco)
-                if preco5 >= 1000000000:
-                    textP5 = font3.render(('${0:.1f} B'.format(preco5/1000000000)), True, Branco)
-        textP5Rect = textP5.get_rect()
-        textP5Rect.center = (440,570)
-        textUP6 = font2.render(('{0}/{1}'.format(Up6, 1)), True, Branco)
-        textUP6Rect = textUP6.get_rect()
-        textUP6Rect.center = (440,655)
-        textP6 = font3.render(('$500 M'), True, Branco)
-        textP6Rect = textP6.get_rect()
-        textP6Rect.center = (440,675)
+
+        def templateUpgrade(quantidade, max, pos, preco):
+            textUP = font2.render(('{0}/{1}'.format(quantidade, max)), True, Branco)
+            textUPRect = textUP.get_rect()
+            textUPRect.center = (pos)
+            textP = font3.render(('${0:.1f}'.format(preco)), True, Branco)
+            if preco >= 1000:
+                textP = font3.render(('${0:.1f} mil'.format(preco/1000)), True, Branco)
+            elif preco >= 1000000:
+                textP = font3.render(('${0:.1f} M'.format(preco/1000000)), True, Branco)
+            elif preco >= 1000000000:
+                textP = font3.render(('${0:.1f} B'.format(preco/1000000000)), True, Branco)
+
+            textPRect = textP.get_rect()
+            textPRect.center = (pos[0], pos[1]+20)
+
+            return textUP, textUPRect, textP, textPRect
+
+        textUP1, textUP1Rect, textP1, textP1Rect = templateUpgrade(Up1, max1, pos1, preco1)
+
+        textUP2, textUP2Rect, textP2, textP2Rect = templateUpgrade(Up2, max2, pos2, preco2)
+
+        textUP3, textUP3Rect, textP3, textP3Rect = templateUpgrade(Up3, max3, pos3, preco3)
+
+        textUP4, textUP4Rect, textP4, textP4Rect = templateUpgrade(Up4, max4, pos4, preco4)
+        
+        textUP5, textUP5Rect, textP5, textP5Rect = templateUpgrade(Up5, max5, pos5, preco5)
+        
+        textUP6, textUP6Rect, textP6, textP6Rect = templateUpgrade(Up6, max6, pos6, preco6)
+
         textseg = font.render(('{0:.2f}/s'.format(mps)), True, Branco)
         textsegRect = textseg.get_rect()
         textsegRect.center = (largura/2-15,363)
