@@ -26,37 +26,33 @@ def telaskins(screen):
         texto = arquivo_json.read()
     goods = json.loads(texto)
 
+    # Posicao das skins e textos
+    pos1 = [[90, 185], [225, 185]]
+    pos2 = [[90, 393.33], [235, 393.33]]
+    pos3 = [[90, 603.33], [240, 593.33], [240, 613.33]]
+
     # Gera desenho das Skins e o Texto de seus nomes
-    beri1 = pygame.image.load(path.join(Imagens, 'beri.png')).convert_alpha()
-    beri1 = pygame.transform.scale(beri1, (190, 190))
-    beri1Rect = beri1.get_rect()
-    beri1Rect.center = (90,185)
+    def templateSkin(arquivo, pos, nome):
+        beri = pygame.image.load(path.join(Imagens, arquivo)).convert_alpha()
+        beri = pygame.transform.scale(beri, (190, 190))
+        beriRect = beri.get_rect()
+        beriRect.center = pos[0]
 
-    textberi = font.render('BERI', True, Branco)
-    textberiRect = textberi.get_rect()
-    textberiRect.center = (((largura/2)-65), 185)
+        text = font.render(nome[0], True, Branco)
+        textRect = text.get_rect()
+        textRect.center = pos[1]
 
-    beri2 = pygame.image.load(path.join(Beringuela, 'beringuela.png')).convert_alpha()
-    beri2 = pygame.transform.scale(beri2, (190, 190))
-    beri2Rect = beri2.get_rect()
-    beri2Rect.center = (90,((altura/3)+160))
+        if len(pos) == 3:
+            text2 = font.render(nome[1], True, Branco)
+            text2Rect = text2.get_rect()
+            text2Rect.center = pos[2]
+            return beri, beriRect, text, textRect, text2, text2Rect
+        else:
+            return beri, beriRect, text, textRect, None, None
 
-    textberinguela = font.render('BERINGUELA', True, Branco)
-    textberinguelarect = textberinguela.get_rect()
-    textberinguelarect.center = (((largura/2)-55), (altura/3)+160)
-
-    beri3 = pygame.image.load(path.join(Zedamanga, 'zedamanga.png')).convert_alpha()
-    beri3 = pygame.transform.scale(beri3, (190, 190))
-    beri3Rect = beri3.get_rect()
-    beri3Rect.center = (90,((altura/3)+370))
-
-    textze = font.render('ZE', True, Branco)
-    textzerect = textze.get_rect()
-    textzerect.center = (((largura/2)-50), (altura/3)+360)
-
-    textmanga = font.render('DA MANGA', True, (255, 255, 255))
-    textmangarect = textmanga.get_rect()
-    textmangarect.center = (((largura/2)-50), (altura/3)+ 380)
+    beri1,beri1Rect,textberi,textberiRect,_,_ = templateSkin('beri.png',pos1,['BERI'])
+    beri2,beri2Rect,textberinguela,textberinguelarect,_,_ = templateSkin('beringuela.png',pos2,['BERINGUELA'])
+    beri3,beri3Rect,textze,textzerect,textmanga,textmangarect = templateSkin('zedamanga.png',pos3,['ZE', 'DA MANGA'])
 
     # Lê o que está inserido no arquivo save.json (skins)
     with open('skin.json', 'r') as arquivo_json:
