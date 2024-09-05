@@ -1,8 +1,7 @@
 # Tela Inicial
 
 from config import largura, altura, fps, quit, jogando, Roxo, instru, intro
-from assets import TelaI, load_assets, Beri, Voltar, Interrogacao, NewGame, LoadGame
-from os import path
+from assets import TelaI, load_assets, Beri, Interrogacao, NewGame, LoadGame
 import pygame
 from classes import Button, Berinjela
 import json 

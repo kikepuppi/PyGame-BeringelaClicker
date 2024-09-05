@@ -2,8 +2,7 @@
 
 # Importar bibliotecas e arquivos
 import pygame
-import os 
-from config import largura, altura, fps, iniciando, quit, jogando, skins, instru, intro, fim, SomFundo, Click
+from config import largura, altura, iniciando, quit, jogando, skins, instru, intro, fim, SomFundo
 from telainicial import telainicial
 from telajogo import telajogo
 from telaskins import telaskins

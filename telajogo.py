@@ -1,7 +1,7 @@
 # Tela Jogando
 
-from config import templateUpgrade, font, font2, font3, largura, altura, fps, quit, jogando, skins, Roxo, Branco, Fontes, Imagens, fim, SomFundo
-from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
+from config import templateUpgrade, font, font2, largura, altura, fps, quit, skins, Roxo, Branco, Imagens, fim
+from assets import TelaJ, load_assets, Upgrade, Beri, BSkins
 from os import path
 from classes import Button, Berinjela
 import pygame

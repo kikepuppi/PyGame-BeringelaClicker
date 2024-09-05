@@ -1,9 +1,8 @@
 # Tela das Skins de berinjela
 
 # Importa e Inicia pacotes
-from config import font, largura, altura, fps, quit, jogando, Roxo, Branco, skins, Fontes, Imagens, Beringuela, Zedamanga
-from assets import TelaI, TelaJ, TelaS, Selecionado, Selecionar, Comprar, Voltar, load_assets
-from os import path
+from config import templateSkin, font, largura, altura, fps, quit, jogando, Roxo, Branco
+from assets import TelaS, Selecionado, Selecionar, Comprar, Voltar, load_assets
 from classes import Button 
 import pygame
 import json
@@ -32,23 +31,6 @@ def telaskins(screen):
     pos3 = [[90, 603.33], [240, 593.33], [240, 613.33]]
 
     # Gera desenho das Skins e o Texto de seus nomes
-    def templateSkin(arquivo, pos, nome):
-        beri = pygame.image.load(path.join(Imagens, arquivo)).convert_alpha()
-        beri = pygame.transform.scale(beri, (190, 190))
-        beriRect = beri.get_rect()
-        beriRect.center = pos[0]
-
-        text = font.render(nome[0], True, Branco)
-        textRect = text.get_rect()
-        textRect.center = pos[1]
-
-        if len(pos) == 3:
-            text2 = font.render(nome[1], True, Branco)
-            text2Rect = text2.get_rect()
-            text2Rect.center = pos[2]
-            return beri, beriRect, text, textRect, text2, text2Rect
-        else:
-            return beri, beriRect, text, textRect, None, None
 
     beri1,beri1Rect,textberi,textberiRect,_,_ = templateSkin('beri.png',pos1,['BERI'])
     beri2,beri2Rect,textberinguela,textberinguelarect,_,_ = templateSkin('beringuela.png',pos2,['BERINGUELA'])
