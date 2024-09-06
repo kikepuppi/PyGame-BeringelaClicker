@@ -1,11 +1,6 @@
 # Arquivo para as missoes
 
 # Importa bibliotecas e arquivos
-from config import largura, altura, fps, quit, jogando, skins, Roxo, Fontes
-from assets import TelaI, TelaJ, TelaS, load_assets, Upgrade, Beri, BSkins
-from os import path
-from classes import Button, Berinjela
-import pygame
 import json
 
 # Lê o save ja existente
